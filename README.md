@@ -2,8 +2,7 @@
 
 ## Background
 
-The growing chasm between rich and poor is undercutting the stability of our capitalist system. One factor leading in this disparity is a gulf in mentality between the investment-class and the working-class. This project seeks to provide every-day ‘average Joe’s’ with access to the wealth-creating tools used by investors.
-
+[name-coming-soon] is a multi-platform application that seeks to help the 'average joe' get into stock trading in a user friendly and risk free environment.
 The basic concept for this project is known as ‘paper trading.’ Users of our mobile/web app will be able to open ‘training accounts’ without spending (or earning) any real money. In their spare time, or whenever they fancy, users can check the current quote of stocks available on the NYSE, and manage a personal portfolio. Their trade histories, and portfolio balance will be available for review. Users will gain valuable experience in market trading through use of this app, and will be encouraged to either continue practicing (if they end up with losses) or to open a real account with real money if they show market savvy and end up with positive returns.
 
 ## Functionality & MVP
@@ -28,8 +27,11 @@ This app will meet the following specifications:
 ## Technology & Technology Challenges
 
 Backend - Ruby on Rails with Jbuilder
+
 Frontend - React / React Native / Redux
-APIs - finance/google.com and - or Yahoo finance API
+
+APIs - finance/google.com and/or Yahoo finance API
+
 Chartist.js for rendering of personal portfolio data visualizations
 
 Challenges include:
