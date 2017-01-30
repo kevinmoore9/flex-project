@@ -18,6 +18,13 @@ Users will be able to view Show views of each stock with a chart and buy/sell bu
 Users will be able to buy and sell stocks, and their cash balance will reflect the results
 Users will have access to a Portfolio overview showing their current holdings and charting the performance of their portfolio over time.
 
+## Wireframes
+
+![alttag](./wireframes/sign-up.png)
+![alttag](./wireframes/portfolio-overview.png)
+![alttag](./wireframes/portfolio-review.png)
+![alttag](./wireframes/stock-show.png)
+
 ## Technology & Technology Challenges
 
 Backend - Ruby on Rails with Jbuilder
@@ -50,7 +57,7 @@ Assist with back-end API structure and front-end user experience
 ## Implementation Timeline
 
 ### Day 1
-Torah - confirm API calls for all relevant data both for backend holdings updates and frontend user queries regarding potential stock values 
+Torah - confirm API calls for all relevant data both for backend holdings updates and frontend user queries regarding potential stock values
 
 Kevin -  Setup Rails project with basic user login functionality (auth)
 
