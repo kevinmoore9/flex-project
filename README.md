@@ -10,13 +10,13 @@ The basic concept for this project is known as ‘paper trading.’ Users of our
 
 This app will meet the following specifications:
 
-It will be implemented in React Native - available as a web-app and for mobile devices
-Users will be able to sign up and log-in/log-out
-Users will have individualized portfolios that track their cash and stock holdings
-Users will be able to search for listings on the NYSE
-Users will be able to view Show views of each stock with a chart and buy/sell button
-Users will be able to buy and sell stocks, and their cash balance will reflect the results
-Users will have access to a Portfolio overview showing their current holdings and charting the performance of their portfolio over time.
+* It will be implemented in React Native - available as a web-app and for mobile devices
+* Users will be able to sign up and log-in/log-out
+* Users will have individualized portfolios that track their cash and stock holdings
+* Users will be able to search for listings on the NYSE
+* Users will be able to view Show views of each stock with a chart and buy/sell button
+* Users will be able to buy and sell stocks, and their cash balance will reflect the results
+* Users will have access to a Portfolio overview showing their current holdings and charting the performance of their portfolio over time.
 
 ## Wireframes
 
@@ -44,10 +44,12 @@ Kevin - backend engineer
 Get recent/real-time stock data via Yahoo Finance (or similar) API
 Store and update user portfolios on the back end
 Construct API responses with jbuilder with relevant user information
+
 Matt - frontend engineer
 Design and build user interface via React Native presentational components
 Implement Chartist library for user dashboard pie and line charts
 Implement embedded stock charts on ticker show page using yahoo finance charting API
+
 Torah - Project Manager
 Identify relevant technologies and research implementation
 Design Database Schema and API endpoints
@@ -79,10 +81,14 @@ Matt - Begin design of portfolio review component to show users their current po
 
 ### Day 4
 Torah - Work with Kevin to write API utils and ensure outside APIs are functioning correctly.
+
 Kevin - Allow for querying of portfolio value on a given day. Finish writing API util methods.
+
 Matt - Continue working on portfolio component. Render basic pie chart showing what percentage of portfolio each instrument is.
 
 ### Day 5
-Torah - Text UI/UX, make sure navigation between “routes” is working correctly, help to implement front-end or back-end components that are behind schedule
+Torah - Text UI/UX, make sure navigation between “routes” is working correctly, help to implement front-end or back-end components that are behind schedule.
+
 Kevin - Ensure API is functioning correctly.
+
 Matt - Finish styling of components, make sure charts render properly and are interactive to some degree (scrolling or buttons to change time scale).
