@@ -3,13 +3,13 @@
 ## Background
 
 [name-coming-soon] is a multi-platform application that seeks to help the 'average joe' get into stock trading in a user friendly and risk free environment.
-The basic concept for this project is known as ‘paper trading.’ Users of our mobile/web app will be able to open ‘training accounts’ without spending (or earning) any real money. In their spare time, or whenever they fancy, users can check the current quote of stocks available on the NYSE, and manage a personal portfolio. Their trade histories, and portfolio balance will be available for review. Users will gain valuable experience in market trading through use of this app, and will be encouraged to either continue practicing (if they end up with losses) or to open a real account with real money if they show market savvy and end up with positive returns.
+The basic concept for this project is known as ‘paper trading.’ Users of our mobile application will be able to open ‘training accounts’ without spending (or earning) any real money. In their spare time, or whenever they fancy, users can check the current quote of stocks available on the NYSE, and manage a personal portfolio. Their trade histories, and portfolio balance will be available for review. Users will gain valuable experience in market trading through use of this app, and will be encouraged to either continue practicing (if they end up with losses) or to open a real account with real money if they show market savvy and end up with positive returns.
 
 ## Functionality & MVP
 
 This app will meet the following specifications:
 
-* It will be implemented in React Native - available as a web-app and for mobile devices
+* It will be implemented in React Native and available on mobile devices
 * Users will be able to sign up and log-in/log-out
 * Users will have individualized portfolios that track their cash and stock holdings
 * Users will be able to search for listings on the NYSE
