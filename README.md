@@ -29,8 +29,13 @@ Backend: Ruby on Rails with Jbuilder
 
 Front-end: React Native / Redux
 
-API: Intrinio API for getting real NYSE trade values: https://api.intrinio.com
-  Stock price endpoint: https://api.intrinio.com/prices?identifier={symbol}
+API's:
+* Intrinio: for getting real NYSE trade values:
+  * https://api.intrinio.com
+  * https://api.intrinio.com/prices?identifier={symbol} <- for prices
+* Yahoo Finance: for getting graphs and charts of stock price over time
+  * http://chart.finance.yahoo.com/z?s=AAPL&t=6m&q=l&l=on&z=s&p=m50,m200
+
 
 Chartist.js for rendering of personal portfolio data visualizations
 
