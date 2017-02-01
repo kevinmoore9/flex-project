@@ -4,16 +4,17 @@ import { Image } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Content, InputGroup, Input, Button, Icon, View } from 'native-base';
-import { signup, login, logout } from '../..actions/session_actions';
-import { setUser } from '../../actions/user';
 
+import { setUser } from '../../actions/user';
 import styles from './styles';
 
 const {
   replaceAt,
 } = actions;
 
-class Login extends Component {
+const background = require('../../../images/shadow.png');
+
+class Register extends Component {
 
   static propTypes = {
     setUser: React.PropTypes.func,
@@ -29,7 +30,7 @@ class Login extends Component {
       email: '',
       password: '',
     };
-    this.handleSignUp = this.handleSignUp.bind(this);
+    this.handleButtonPress = this.handleButtonPress.bind(this);
   }
 
   setUser(name) {
@@ -41,7 +42,7 @@ class Login extends Component {
     this.props.replaceAt('login', { key: route }, this.props.navigation.key);
   }
 
-  handleSignUp() {
+  handleButtonPress() {
     // debugger
     return fetch('http://localhost:3000/api/user', {
       method: 'POST',
@@ -58,7 +59,6 @@ class Login extends Component {
   }
 
   render() {
-    // debugger
     return (
       <Container>
         <View style={styles.container}>
@@ -80,7 +80,7 @@ class Login extends Component {
                   />
                 </InputGroup>
 
-                <Button style={styles.btn} onPress={() => this.handleSignUp()}>
+                <Button style={styles.btn} onPress={() => this.handleButtonPress()}>
                   Sign Up
                 </Button>
               </View>
@@ -96,16 +96,11 @@ function bindActions(dispatch) {
   return {
     replaceAt: (routeKey, route, key) => dispatch(replaceAt(routeKey, route, key)),
     setUser: name => dispatch(setUser(name)),
-    login: user => dispatch(login(user)),
-    signup: user => dispatch(signup(user)),
   };
 }
 
-const mapStateToProps = (state) => {
-  // debugger
-  return {
-    navigation: state.cardNavigation,
-  };
-};
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
 
-export default connect(mapStateToProps, bindActions)(Login);
+export default connect(mapStateToProps, bindActions)(Register);
