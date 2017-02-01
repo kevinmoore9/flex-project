@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/manafount/appacademy/TickerTycoon/ios/TickerTycoon/AppDelegate.m \
-  /Users/manafount/appacademy/TickerTycoon/ios/TickerTycoon/AppDelegate.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/ios/TickerTycoon/AppDelegate.m \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/ios/TickerTycoon/AppDelegate.h \
   ../node_modules/react-native-code-push/ios/CodePush/CodePush.h \
   ../node_modules/react-native/React/Modules/RCTEventEmitter.h \
   ../node_modules/react-native/React/Base/RCTBridge.h \

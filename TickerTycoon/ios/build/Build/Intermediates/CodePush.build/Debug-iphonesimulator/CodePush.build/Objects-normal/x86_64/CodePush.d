@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native-code-push/ios/CodePush/CodePush.m \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native-code-push/ios/CodePush/CodePush.m \
   ../../react-native/React/Base/RCTAssert.h \
   ../../react-native/React/Base/RCTDefines.h \
   ../../react-native/React/Base/RCTBridgeModule.h \
@@ -19,5 +19,5 @@ dependencies: \
   ../../react-native/React/Base/RCTInvalidating.h \
   ../../react-native/React/Base/RCTRootView.h \
   ../../react-native/React/Base/RCTUtils.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native-code-push/ios/CodePush/CodePush.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native-code-push/ios/CodePush/CodePush.h \
   ../../react-native/React/Modules/RCTEventEmitter.h

@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/Libraries/Network/RCTNetInfo.m \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/Libraries/Network/RCTNetInfo.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/Libraries/Network/RCTNetInfo.m \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/Libraries/Network/RCTNetInfo.h \
   ../../React/Modules/RCTEventEmitter.h ../../React/Base/RCTBridge.h \
   ../../React/Base/RCTBridgeDelegate.h \
   ../../React/Base/RCTJavaScriptLoader.h \

@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/Libraries/Image/RCTResizeMode.m \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/Libraries/Image/RCTResizeMode.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/Libraries/Image/RCTResizeMode.m \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/Libraries/Image/RCTResizeMode.h \
   ../../React/Base/RCTConvert.h ../../React/CSSLayout/CSSLayout.h \
   ../../React/CSSLayout/CSSMacros.h ../../React/Views/RCTAnimationType.h \
   ../../React/Views/RCTBorderStyle.h \

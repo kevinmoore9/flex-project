@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/manafount/appacademy/TickerTycoon/ios/TickerTycoonTests/TickerTycoonTests.m \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/ios/TickerTycoonTests/TickerTycoonTests.m \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Modules/module.modulemap \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCUIRemote.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCUIKeyboardKeys.h \

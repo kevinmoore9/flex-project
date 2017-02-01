@@ -1,22 +1,22 @@
 dependencies: \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Modules/RCTExceptionsManager.m \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Modules/RCTExceptionsManager.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTBridgeModule.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTDefines.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTConvert.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/CSSLayout/CSSLayout.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/CSSLayout/CSSMacros.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Views/RCTAnimationType.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Views/RCTBorderStyle.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Views/RCTTextDecorationLineType.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTLog.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTAssert.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Views/RCTPointerEvents.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Modules/RCTRedBox.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTBridge.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTFrameUpdate.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTInvalidating.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTErrorCustomizer.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTRootView.h
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Modules/RCTExceptionsManager.m \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Modules/RCTExceptionsManager.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTConvert.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/CSSLayout/CSSLayout.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/CSSLayout/CSSMacros.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Views/RCTAnimationType.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Views/RCTBorderStyle.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Views/RCTTextDecorationLineType.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Views/RCTPointerEvents.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Modules/RCTRedBox.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTErrorCustomizer.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTRootView.h

@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/manafount/appacademy/TickerTycoon/ios/TickerTycoon/main.m \
-  /Users/manafount/appacademy/TickerTycoon/ios/TickerTycoon/AppDelegate.h
+  /Users/manafount/appacademy/flex-project/TickerTycoon/ios/TickerTycoon/main.m \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/ios/TickerTycoon/AppDelegate.h

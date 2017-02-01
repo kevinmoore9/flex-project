@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native-code-push/ios/CodePush/RCTConvert+CodePushUpdateState.m \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native-code-push/ios/CodePush/CodePush.h \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native-code-push/ios/CodePush/RCTConvert+CodePushUpdateState.m \
+  /Users/manafount/appacademy/flex-project/TickerTycoon/node_modules/react-native-code-push/ios/CodePush/CodePush.h \
   ../../react-native/React/Modules/RCTEventEmitter.h \
   ../../react-native/React/Base/RCTBridge.h \
   ../../react-native/React/Base/RCTBridgeDelegate.h \

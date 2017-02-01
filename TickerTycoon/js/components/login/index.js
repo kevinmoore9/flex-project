@@ -12,8 +12,6 @@ const {
   replaceAt,
 } = actions;
 
-const background = require('../../../images/shadow.png');
-
 class Login extends Component {
 
   static propTypes = {
@@ -45,24 +43,22 @@ class Login extends Component {
       <Container>
         <View style={styles.container}>
           <Content>
-            <Image source={background} style={styles.shadow}>
-              <View style={styles.bg}>
-                <InputGroup style={styles.input}>
-                  <Icon name="ios-person" />
-                  <Input placeholder="EMAIL" onChangeText={name => this.setState({ name })} />
-                </InputGroup>
-                <InputGroup style={styles.input}>
-                  <Icon name="ios-unlock-outline" />
-                  <Input
-                    placeholder="PASSWORD"
-                    secureTextEntry
-                  />
-                </InputGroup>
-                <Button style={styles.btn} onPress={() => this.replaceRoute('home')}>
-                  Login
-                </Button>
-              </View>
-            </Image>
+            <View style={styles.bg}>
+              <InputGroup style={styles.input}>
+                <Icon name="ios-person" />
+                <Input placeholder="EMAIL" onChangeText={name => this.setState({ name })} />
+              </InputGroup>
+              <InputGroup style={styles.input}>
+                <Icon name="ios-unlock-outline" />
+                <Input
+                  placeholder="PASSWORD"
+                  secureTextEntry
+                />
+              </InputGroup>
+              <Button style={styles.btn} onPress={() => this.replaceRoute('home')}>
+                Login
+              </Button>
+            </View>
           </Content>
         </View>
       </Container>
