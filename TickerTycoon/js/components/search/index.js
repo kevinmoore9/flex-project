@@ -11,7 +11,7 @@ const {
   popRoute,
 } = actions;
 
-class BlankPage extends Component {
+class Search extends Component {
 
   static propTypes = {
     name: React.PropTypes.string,
@@ -38,7 +38,7 @@ class BlankPage extends Component {
             <Icon name="ios-arrow-back" />
           </Button>
 
-          <Title>{(name) ? this.props.name : 'Blank Page'}</Title>
+          <Title>Search Stocks</Title>
 
           <Button transparent onPress={this.props.openDrawer}>
             <Icon name="ios-menu" />
@@ -47,7 +47,7 @@ class BlankPage extends Component {
 
         <Content padder>
           <Text>
-            {(!isNaN(index)) ? list[index] : 'Create Something Awesome . . .'}
+            Search stuff goes here...
           </Text>
         </Content>
       </Container>
@@ -70,4 +70,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, bindAction)(BlankPage);
+export default connect(mapStateToProps, bindAction)(Search);

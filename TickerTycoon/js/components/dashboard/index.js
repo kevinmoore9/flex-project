@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, ART, View } from 'react-native';
+
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Title, Content, Text, Button, Icon } from 'native-base';
@@ -11,16 +12,22 @@ import { setIndex } from '../../actions/list';
 import myTheme from '../../themes/base-theme';
 import styles from './styles';
 
+
+const {
+  Surface,
+  Group,
+  Shape
+} = ART;
+
 const {
   reset,
   pushRoute,
 } = actions;
 
-class Home extends Component {
+class Dashboard extends Component {
 
   static propTypes = {
     name: React.PropTypes.string,
-    list: React.PropTypes.arrayOf(React.PropTypes.string),
     setIndex: React.PropTypes.func,
     openDrawer: React.PropTypes.func,
     pushRoute: React.PropTypes.func,
@@ -43,7 +50,7 @@ class Home extends Component {
             <Icon name="ios-power" />
           </Button>
 
-          <Title>{(this.props.name) ? this.props.name : 'Home'}</Title>
+          <Title>Dashboard</Title>
 
           <Button transparent onPress={this.props.openDrawer}>
             <Icon name="ios-menu" />
@@ -51,18 +58,9 @@ class Home extends Component {
         </Header>
 
         <Content>
-          <Grid style={styles.mt}>
-            {this.props.list.map((item, i) =>
-              <Row key={i}>
-                <TouchableOpacity
-                  style={styles.row}
-                  onPress={() => this.pushRoute('blankPage', i)}
-                >
-                  <Text style={styles.text}>{item}</Text>
-                </TouchableOpacity>
-              </Row>
-            )}
-          </Grid>
+          <Text>
+            Dashboard content goes here...
+          </Text>
         </Content>
       </Container>
     );
@@ -84,4 +82,4 @@ const mapStateToProps = state => ({
   navigation: state.cardNavigation,
 });
 
-export default connect(mapStateToProps, bindAction)(Home);
+export default connect(mapStateToProps, bindAction)(Dashboard);

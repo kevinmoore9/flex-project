@@ -8,8 +8,8 @@ import { actions } from 'react-native-navigation-redux-helpers';
 import { closeDrawer } from './actions/drawer';
 
 import Login from './components/login/';
-import Home from './components/home/';
-import BlankPage from './components/blankPage';
+import Dashboard from './components/dashboard/';
+import Search from './components/search';
 import SplashPage from './components/splashscreen/';
 import SideBar from './components/sideBar';
 import { statusBarColor } from './themes/base-theme';
@@ -38,7 +38,7 @@ class AppNavigator extends Component {
     BackAndroid.addEventListener('hardwareBackPress', () => {
       const routes = this.props.navigation.routes;
 
-      if (routes[routes.length - 1].key === 'home' || routes[routes.length - 1].key === 'login') {
+      if (routes[routes.length - 1].key === 'dashboard' || routes[routes.length - 1].key === 'login') {
         return false;
       }
 
@@ -77,10 +77,10 @@ class AppNavigator extends Component {
         return <SplashPage />;
       case 'login':
         return <Login />;
-      case 'home':
-        return <Home />;
-      case 'blankPage':
-        return <BlankPage />;
+      case 'dashboard':
+        return <Dashboard />;
+      case 'search':
+        return <Search />;
       default :
         return <Login />;
     }
