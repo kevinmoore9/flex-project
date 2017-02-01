@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native-vector-icons/RNVectorIconsManager/RNVectorIconsManager.m \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native-vector-icons/RNVectorIconsManager/RNVectorIconsManager.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native-vector-icons/RNVectorIconsManager/RNVectorIconsManager.m \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native-vector-icons/RNVectorIconsManager/RNVectorIconsManager.h \
   ../react-native/React/Base/RCTBridgeModule.h \
   ../react-native/React/Base/RCTDefines.h \
   ../react-native/React/Base/RCTLog.h \

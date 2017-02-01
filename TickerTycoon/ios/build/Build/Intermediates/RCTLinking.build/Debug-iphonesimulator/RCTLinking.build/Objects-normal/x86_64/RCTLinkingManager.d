@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/Libraries/LinkingIOS/RCTLinkingManager.m \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/Libraries/LinkingIOS/RCTLinkingManager.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/Libraries/LinkingIOS/RCTLinkingManager.m \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/Libraries/LinkingIOS/RCTLinkingManager.h \
   ../../React/Modules/RCTEventEmitter.h ../../React/Base/RCTBridge.h \
   ../../React/Base/RCTBridgeDelegate.h \
   ../../React/Base/RCTJavaScriptLoader.h \

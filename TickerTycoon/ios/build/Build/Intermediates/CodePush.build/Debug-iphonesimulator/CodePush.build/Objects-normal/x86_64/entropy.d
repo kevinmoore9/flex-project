@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native-code-push/ios/CodePush/SSZipArchive/aes/entropy.c
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native-code-push/ios/CodePush/SSZipArchive/aes/entropy.c

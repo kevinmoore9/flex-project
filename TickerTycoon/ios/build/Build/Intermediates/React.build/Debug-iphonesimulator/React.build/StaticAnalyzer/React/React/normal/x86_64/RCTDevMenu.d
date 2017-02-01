@@ -1,21 +1,21 @@
 dependencies: \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Modules/RCTDevMenu.m \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Modules/RCTDevMenu.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTBridge.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTBridgeModule.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTDefines.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTFrameUpdate.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTInvalidating.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTAssert.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTBridge+Private.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTEventDispatcher.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTKeyCommands.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTLog.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Profiler/RCTProfile.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTRootView.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Modules/RCTSourceCode.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTUtils.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTWebSocketProxy.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTWebSocketProxyDelegate.h
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Modules/RCTDevMenu.m \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Modules/RCTDevMenu.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTBridge+Private.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTKeyCommands.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Profiler/RCTProfile.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTRootView.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Modules/RCTSourceCode.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTWebSocketProxy.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTWebSocketProxyDelegate.h

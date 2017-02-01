@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>org.reactjs.native.example.TickerTycoon</string>
+	<string>M4AQ7Q5S46.org.reactjs.native.example.TickerTycoon</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>org.reactjs.native.example.TickerTycoon</string>
+		<string>M4AQ7Q5S46.org.reactjs.native.example.TickerTycoon</string>
 	</array>
 </dict>
 </plist>

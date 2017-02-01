@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/Libraries/Text/RCTTextFieldManager.m \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/Libraries/Text/RCTTextFieldManager.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/Libraries/Text/RCTTextFieldManager.m \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/Libraries/Text/RCTTextFieldManager.h \
   ../../React/Views/RCTViewManager.h ../../React/Base/RCTBridgeModule.h \
   ../../React/Base/RCTDefines.h ../../React/Base/RCTConvert.h \
   ../../React/CSSLayout/CSSLayout.h ../../React/CSSLayout/CSSMacros.h \
@@ -15,5 +15,5 @@ dependencies: \
   ../../React/Base/RCTFrameUpdate.h ../../React/Base/RCTInvalidating.h \
   ../../React/Views/UIView+React.h ../../React/Views/RCTComponent.h \
   ../../React/Views/RCTShadowView.h ../../React/Base/RCTRootView.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/Libraries/Text/RCTTextField.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/Libraries/Text/RCTTextField.h \
   ../../React/Views/RCTFont.h

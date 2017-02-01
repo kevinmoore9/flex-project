@@ -27,8 +27,10 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
+      email: '',
+      password: '',
     };
+    this.handleSignUp = this.handleSignUp.bind(this);
   }
 
   setUser(name) {
@@ -40,7 +42,24 @@ class Login extends Component {
     this.props.replaceAt('login', { key: route }, this.props.navigation.key);
   }
 
+  handleSignUp() {
+    // debugger
+    return fetch('http://localhost:3000/api/user', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        user: {
+          email: this.state.email,
+          password: this.state.password,
+        } }),
+    });
+  }
+
   render() {
+    // debugger
     return (
       <Container>
         <View style={styles.container}>
@@ -49,17 +68,21 @@ class Login extends Component {
               <View style={styles.bg}>
                 <InputGroup style={styles.input}>
                   <Icon name="ios-person" />
-                  <Input placeholder="EMAIL" onChangeText={name => this.setState({ name })} />
+                  <Input placeholder="EMAIL" onChangeText={val => this.setState({ email: val })} />
                 </InputGroup>
+
                 <InputGroup style={styles.input}>
                   <Icon name="ios-unlock-outline" />
                   <Input
                     placeholder="PASSWORD"
+                    onChangeText={val => this.setState({ password: val })}
+                    debugger
                     secureTextEntry
                   />
                 </InputGroup>
-                <Button style={styles.btn} onPress={() => this.replaceRoute('home')}>
-                  Login
+
+                <Button style={styles.btn} onPress={() => this.handleSignUp()}>
+                  Sign Up
                 </Button>
               </View>
             </Image>

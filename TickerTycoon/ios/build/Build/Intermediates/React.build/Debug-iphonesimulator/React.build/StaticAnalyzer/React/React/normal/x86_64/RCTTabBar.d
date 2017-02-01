@@ -1,22 +1,22 @@
 dependencies: \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Views/RCTTabBar.m \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Views/RCTTabBar.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTEventDispatcher.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTBridge.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTBridgeModule.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTDefines.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTFrameUpdate.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTInvalidating.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTLog.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTAssert.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Views/RCTTabBarItem.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Views/RCTComponent.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Base/RCTUtils.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Views/RCTView.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Views/RCTBorderStyle.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Views/RCTPointerEvents.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Views/RCTViewControllerProtocol.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Views/RCTWrapperViewController.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Views/UIView+React.h
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Views/RCTTabBar.m \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Views/RCTTabBar.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Views/RCTTabBarItem.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Views/RCTComponent.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Views/RCTView.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Views/RCTBorderStyle.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Views/RCTPointerEvents.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Views/RCTViewControllerProtocol.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Views/RCTWrapperViewController.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Views/UIView+React.h

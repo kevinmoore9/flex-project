@@ -1,7 +1,7 @@
 dependencies: \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/Libraries/WebSocket/RCTWebSocketExecutor.m \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/Libraries/WebSocket/RCTWebSocketExecutor.m \
   ../../React/Base/RCTDefines.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/Libraries/WebSocket/RCTWebSocketExecutor.h \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/Libraries/WebSocket/RCTWebSocketExecutor.h \
   ../../React/Base/RCTJavaScriptExecutor.h \
   ../../React/Base/RCTBridgeModule.h ../../React/Base/RCTInvalidating.h \
   ../../React/Base/RCTBridge.h ../../React/Base/RCTBridgeDelegate.h \
@@ -13,4 +13,4 @@ dependencies: \
   ../../React/Views/RCTTextDecorationLineType.h \
   ../../React/Base/RCTLog.h ../../React/Base/RCTAssert.h \
   ../../React/Views/RCTPointerEvents.h ../../React/Base/RCTUtils.h \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/Libraries/WebSocket/RCTSRWebSocket.h
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/Libraries/WebSocket/RCTSRWebSocket.h

@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Views/RCTMapOverlay.m \
-  /Users/manafount/appacademy/TickerTycoon/node_modules/react-native/React/Views/RCTMapOverlay.h
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Views/RCTMapOverlay.m \
+  /Users/kevin/Desktop/aa/flex-project/TickerTycoon/node_modules/react-native/React/Views/RCTMapOverlay.h
