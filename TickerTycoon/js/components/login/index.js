@@ -4,8 +4,9 @@ import { Image } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Content, InputGroup, Input, Button, Icon, View } from 'native-base';
-
+import { signup, login, logout } from '../..actions/session_actions';
 import { setUser } from '../../actions/user';
+
 import styles from './styles';
 
 const {
@@ -97,11 +98,16 @@ function bindActions(dispatch) {
   return {
     replaceAt: (routeKey, route, key) => dispatch(replaceAt(routeKey, route, key)),
     setUser: name => dispatch(setUser(name)),
+    login: user => dispatch(login(user)),
+    signup: user => dispatch(signup(user)),
   };
 }
 
-const mapStateToProps = state => ({
-  navigation: state.cardNavigation,
-});
+const mapStateToProps = (state) => {
+  debugger
+  return {
+    navigation: state.cardNavigation,
+  };
+};
 
 export default connect(mapStateToProps, bindActions)(Login);
