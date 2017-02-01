@@ -4,7 +4,7 @@ import { Image } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Content, InputGroup, Input, Button, Icon, View } from 'native-base';
-import { signup, login, logout } from '../..actions/session_actions';
+import { signup, login, logout } from '../../actions/session_actions';
 import { setUser } from '../../actions/user';
 
 import styles from './styles';
@@ -63,7 +63,6 @@ class Login extends Component {
       <Container>
         <View style={styles.container}>
           <Content>
-            <Image source={background} style={styles.shadow}>
               <View style={styles.bg}>
                 <InputGroup style={styles.input}>
                   <Icon name="ios-person" />
@@ -84,7 +83,6 @@ class Login extends Component {
                   Sign Up
                 </Button>
               </View>
-            </Image>
           </Content>
         </View>
       </Container>
