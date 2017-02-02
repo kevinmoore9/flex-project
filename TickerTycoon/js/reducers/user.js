@@ -41,7 +41,6 @@ const SessionReducer = (state = _nullUser, action) => {
         currentUser,
       });
       const token = AsyncStorage.getItem('SESSION_TOKEN');
-      console.log(token);
       return newState;
     case LOGOUT:
       return merge({}, _nullUser);

@@ -46,7 +46,6 @@ class Dashboard extends Component {
   async getToken() {
     try {
       const token = await AsyncStorage.getItem('SESSION_TOKEN');
-      console.log(token);
       this.props.logout(token);
     } catch (error) {
       console.log('errors');
