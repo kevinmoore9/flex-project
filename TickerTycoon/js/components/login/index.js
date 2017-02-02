@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { Image, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Content, InputGroup, Input, Button, Icon, View } from 'native-base';
@@ -13,10 +13,13 @@ const {
   replaceAt,
 } = actions;
 
+const SESSION_TOKEN = 'session_token';
+
 class Login extends Component {
 
   static propTypes = {
     setUser: React.PropTypes.func,
+    signup: React.PropTypes.func,
     replaceAt: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
@@ -30,6 +33,7 @@ class Login extends Component {
       password: '',
     };
     this.handleSignUp = this.handleSignUp.bind(this);
+    // this.storeToken = this.storeToken.bind(this);
   }
 
   setUser(name) {
@@ -37,25 +41,33 @@ class Login extends Component {
   }
 
   replaceRoute(route) {
-    this.setUser(this.state.name);
     this.props.replaceAt('login', { key: route }, this.props.navigation.key);
   }
+  //
+  // async storeToken(accessToken) {
+  //   debugger
+  //   try {
+  //     await AsyncStorage.setItem(ACCESS_TOKEN, accessToken);
+  //     console.log("Token was stored successfull ");
+  //   } catch (error) {
+  //     console.log("Something went wrong");
+  //   }
+  // }
 
   handleSignUp() {
-    // debugger
-    return fetch('http://localhost:3000/api/user', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        user: {
-          email: this.state.email,
-          password: this.state.password,
-        } }),
-    });
+    this.props.signup(this.state);
+    this.replaceRoute('dashboard');
   }
+
+  // async setToken(token) {
+  //   try {
+  //     await AsyncStorage.setItem(SESSION_TOKEN, currentUser.session_token);
+  //     console.log("token saved");
+  //   } catch (error) {
+  //     console.log("token not saved");
+  //   }
+  // }
+
 
   render() {
     // debugger
@@ -100,8 +112,9 @@ function bindActions(dispatch) {
 }
 
 const mapStateToProps = (state) => {
-  // debugger
   return {
+    currentUser: state.session.currentUser,
+    errors: state.session.errors,
     navigation: state.cardNavigation,
   };
 };

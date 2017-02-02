@@ -5,7 +5,7 @@ import merge from 'lodash/merge';
 import { RECEIVE_CURRENT_USER,
          LOGOUT,
          RECEIVE_ERRORS } from '../actions/session_actions';
-
+import { AsyncStorage } from 'react-native';
 // export type State = {
 //     name: string
 // }
@@ -14,6 +14,8 @@ const _nullUser = {
   currentUser: null,
   errors: [],
 };
+
+const SESSION_TOKEN = 'session_token';
 
 // export default function (state:State = _nullUser, action:Action): State {
 //   if (action.type === SET_USER) {
@@ -30,9 +32,16 @@ const SessionReducer = (state = _nullUser, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       const currentUser = action.currentUser;
-      return merge({}, _nullUser, {
+      try {
+        AsyncStorage.setItem(SESSION_TOKEN, currentUser.session_token);
+        console.log('saved token');
+      } catch (error) {
+        console.log("error saving token");
+      }
+      const newState = merge({}, _nullUser, {
         currentUser,
       });
+      return newState;
     case LOGOUT:
       return merge({}, _nullUser);
     case RECEIVE_ERRORS:

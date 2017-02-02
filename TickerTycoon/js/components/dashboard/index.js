@@ -27,7 +27,6 @@ const {
 class Dashboard extends Component {
 
   static propTypes = {
-    name: React.PropTypes.string,
     setIndex: React.PropTypes.func,
     openDrawer: React.PropTypes.func,
     pushRoute: React.PropTypes.func,
@@ -77,7 +76,6 @@ function bindAction(dispatch) {
 }
 
 const mapStateToProps = state => ({
-  name: state.user.name,
   list: state.list.list,
   navigation: state.cardNavigation,
 });
