@@ -11,12 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130231941) do
-
+ActiveRecord::Schema.define(version: 20170202021500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "balances", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.float    "equity",     null: false
+    t.float    "cash",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "balances", ["user_id"], name: "index_balances_on_user_id", using: :btree
+
+  create_table "stocks", force: :cascade do |t|
+    t.string   "symbol",     null: false
+    t.float    "price",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stocks", ["symbol"], name: "index_stocks_on_symbol", using: :btree
+
+  create_table "trades", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "stock_id",   null: false
+    t.integer  "volume",     null: false
+    t.string   "trade_type", null: false
+    t.float    "value",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "trades", ["user_id"], name: "index_trades_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
