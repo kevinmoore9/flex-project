@@ -32,6 +32,36 @@ class User < ActiveRecord::Base
     @password = password
   end
 
+  def stocks #returns a hash where keys are ticker symbols and vals are numbers of shares
+    buyHash = {}
+    sellHash = {}
+
+    Trade.where(user_id: self.id).each do |tr|
+      if tr.trade_type == 'BUY'
+        if buyHash[tr.stock_id]
+          buyHash[tr.stock_id] += tr.volume
+        else
+          buyHash[tr.stock_id] = tr.volume
+        end
+      elsif tr.trade_type == 'SELL'
+        if sellHash[tr.stock_id]
+          sellHash[tr.stock_id] += tr.volume
+        else
+          sellHash[tr.stock_id] = tr.volume
+        end
+      end
+    end
+
+    holdings = {}
+    buyHash.keys.each do |sym|
+      sold = sellHash[sym] ? sellHash[sym] : 0
+      if buyHash[sym] - sold > 0
+        holdings[sym] = buyHash[sym] - sold
+      end
+    end
+    holdings
+  end
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return nil unless user
@@ -64,5 +94,4 @@ class User < ActiveRecord::Base
       self.session_token = new_session_token
     end
   end
-
 end

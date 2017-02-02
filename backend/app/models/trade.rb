@@ -13,7 +13,7 @@
 #
 
 class Trade < ActiveRecord::Base
-  validates :user_id, :stock_id, :volume, :type, :value, presence: true
+  validates :user_id, :stock_id, :volume, :trade_type, :value, presence: true
 
   belongs_to :user
   belongs_to :stock
