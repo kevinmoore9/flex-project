@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { TouchableOpacity, ART, View } from 'react-native';
+import { TouchableOpacity, View, WebView } from 'react-native';
 
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
@@ -12,12 +12,7 @@ import { setIndex } from '../../actions/list';
 import myTheme from '../../themes/base-theme';
 import styles from './styles';
 
-
-const {
-  Surface,
-  Group,
-  Shape
-} = ART;
+// import LineChart from './charts/lineChart';
 
 const {
   reset,
@@ -61,6 +56,18 @@ class Dashboard extends Component {
           <Text>
             Dashboard content goes here...
           </Text>
+          <WebView
+            style={{
+              backgroundColor: '#F5F5F5',
+              height: 250,
+            }}
+            source={{ html:
+              `<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+              `
+            }}
+            scalesPageToFit={true}
+          />
         </Content>
       </Container>
     );
