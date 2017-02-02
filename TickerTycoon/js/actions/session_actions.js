@@ -28,6 +28,6 @@ export const login = params => dispatch => (
      err => dispatch(receiveErrors(err.responseJSON)))
 );
 
-export const logout = () => dispatch => (
-  APIUtil.logout().then(() => dispatch(receiveCurrentUser(null)))
+export const logout = token => dispatch => (
+  APIUtil.logout(token).then(() => dispatch(receiveCurrentUser(null)))
 );

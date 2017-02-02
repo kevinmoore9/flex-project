@@ -13,9 +13,19 @@ export const login = user => (
    }).then(res => res.json())
 );
 
-export const logout = () => {
+export const logout = (token) => {
   return (
-   fetch('http://localhost:3000/api/session', { method: 'DELETE' })
+   fetch('http://localhost:3000/api/session', {
+     method: 'DELETE',
+     headers: {
+       'Accept': 'application/json',
+       'Content-Type': 'application/json',
+     },
+     body: JSON.stringify({
+       session: token,
+     }),
+
+   })
   );
 };
 

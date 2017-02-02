@@ -4,7 +4,7 @@ import { Image, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Content, InputGroup, Input, Button, Icon, View } from 'native-base';
-import { signup, login, logout } from '../../actions/session_actions';
+import { signup, login } from '../../actions/session_actions';
 import { setUser } from '../../actions/user';
 
 import styles from './styles';
@@ -18,6 +18,7 @@ class Login extends Component {
   static propTypes = {
     setUser: React.PropTypes.func,
     signup: React.PropTypes.func,
+    login: React.PropTypes.func,
     replaceAt: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
@@ -30,7 +31,10 @@ class Login extends Component {
       email: '',
       password: '',
     };
+    this.formType = 'Log In';
     this.handleSignUp = this.handleSignUp.bind(this);
+    this.toggleForm = this.toggleForm.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   setUser(name) {
@@ -45,6 +49,20 @@ class Login extends Component {
   handleSignUp() {
     this.props.signup(this.state);
     this.replaceRoute('dashboard');
+  }
+
+  handleLogIn() {
+    this.props.login(this.state);
+    this.replaceRoute('dashboard');
+  }
+
+  handleSubmit() {
+    this.formType === 'Log In' ? this.handleLogIn() : this.handleSignUp();
+  }
+
+  toggleForm() {
+    this.formType = (this.formType === 'Log In' ? 'Sign Up' : 'Log In');
+    this.forceUpdate();
   }
 
   render() {
@@ -68,8 +86,11 @@ class Login extends Component {
                 />
               </InputGroup>
 
-              <Button style={styles.btn} onPress={() => this.handleSignUp()}>
-                Sign Up
+              <Button style={styles.btn} onPress={() => this.handleSubmit()}>
+                {this.formType}
+              </Button>
+              <Button style={styles.btn} onPress={() => this.toggleForm()} >
+                {(this.formType === 'Log In' ? 'Sign Up' : 'Log In') + ' Instead'}
               </Button>
             </View>
           </Content>

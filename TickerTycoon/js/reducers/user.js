@@ -15,7 +15,6 @@ const _nullUser = {
   errors: [],
 };
 
-const SESSION_TOKEN = 'session_token';
 
 // export default function (state:State = _nullUser, action:Action): State {
 //   if (action.type === SET_USER) {
@@ -33,7 +32,7 @@ const SessionReducer = (state = _nullUser, action) => {
     case RECEIVE_CURRENT_USER:
       const currentUser = action.currentUser;
       try {
-        AsyncStorage.setItem(SESSION_TOKEN, currentUser.session_token);
+        AsyncStorage.setItem('SESSION_TOKEN', currentUser.session_token);
         console.log('saved token');
       } catch (error) {
         console.log("error saving token");
@@ -41,6 +40,8 @@ const SessionReducer = (state = _nullUser, action) => {
       const newState = merge({}, _nullUser, {
         currentUser,
       });
+      const token = AsyncStorage.getItem('SESSION_TOKEN');
+      console.log(token);
       return newState;
     case LOGOUT:
       return merge({}, _nullUser);
