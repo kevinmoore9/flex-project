@@ -8,6 +8,7 @@ import { actions } from 'react-native-navigation-redux-helpers';
 import { closeDrawer } from './actions/drawer';
 
 import Login from './components/login/';
+import Register from './components/register';
 import Dashboard from './components/dashboard/';
 import Search from './components/search';
 import SplashPage from './components/splashscreen/';
@@ -77,6 +78,8 @@ class AppNavigator extends Component {
         return <SplashPage />;
       case 'login':
         return <Login />;
+      case 'register':
+        return <Register />;
       case 'dashboard':
         return <Dashboard />;
       case 'search':

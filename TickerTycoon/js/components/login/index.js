@@ -13,8 +13,6 @@ const {
   replaceAt,
 } = actions;
 
-const SESSION_TOKEN = 'session_token';
-
 class Login extends Component {
 
   static propTypes = {
@@ -33,7 +31,6 @@ class Login extends Component {
       password: '',
     };
     this.handleSignUp = this.handleSignUp.bind(this);
-    // this.storeToken = this.storeToken.bind(this);
   }
 
   setUser(name) {
@@ -43,58 +40,38 @@ class Login extends Component {
   replaceRoute(route) {
     this.props.replaceAt('login', { key: route }, this.props.navigation.key);
   }
-  //
-  // async storeToken(accessToken) {
-  //   debugger
-  //   try {
-  //     await AsyncStorage.setItem(ACCESS_TOKEN, accessToken);
-  //     console.log("Token was stored successfull ");
-  //   } catch (error) {
-  //     console.log("Something went wrong");
-  //   }
-  // }
+
 
   handleSignUp() {
     this.props.signup(this.state);
     this.replaceRoute('dashboard');
   }
 
-  // async setToken(token) {
-  //   try {
-  //     await AsyncStorage.setItem(SESSION_TOKEN, currentUser.session_token);
-  //     console.log("token saved");
-  //   } catch (error) {
-  //     console.log("token not saved");
-  //   }
-  // }
-
-
   render() {
-    // debugger
     return (
       <Container>
         <View style={styles.container}>
           <Content>
-              <View style={styles.bg}>
-                <InputGroup style={styles.input}>
-                  <Icon name="ios-person" />
-                  <Input placeholder="EMAIL" onChangeText={val => this.setState({ email: val })} />
-                </InputGroup>
+            <View style={styles.bg}>
+              <InputGroup style={styles.input}>
+                <Icon name="ios-person" />
+                <Input placeholder="EMAIL" onChangeText={val => this.setState({ email: val })} />
+              </InputGroup>
 
-                <InputGroup style={styles.input}>
-                  <Icon name="ios-unlock-outline" />
-                  <Input
-                    placeholder="PASSWORD"
-                    onChangeText={val => this.setState({ password: val })}
-                    debugger
-                    secureTextEntry
-                  />
-                </InputGroup>
+              <InputGroup style={styles.input}>
+                <Icon name="ios-unlock-outline" />
+                <Input
+                  placeholder="PASSWORD"
+                  onChangeText={val => this.setState({ password: val })}
+                  debugger
+                  secureTextEntry
+                />
+              </InputGroup>
 
-                <Button style={styles.btn} onPress={() => this.handleSignUp()}>
-                  Sign Up
-                </Button>
-              </View>
+              <Button style={styles.btn} onPress={() => this.handleSignUp()}>
+                Sign Up
+              </Button>
+            </View>
           </Content>
         </View>
       </Container>
