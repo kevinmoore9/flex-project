@@ -6,14 +6,14 @@
 #  user_id    :integer          not null
 #  stock_id   :integer          not null
 #  volume     :integer          not null
-#  type       :string           not null
+#  trade_type :string           not null
 #  value      :float            not null
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 class Trade < ActiveRecord::Base
-  validates :user_id, :stock_id, :volume, :type, :unit_price, presence: true
+  validates :user_id, :stock_id, :volume, :type, :value, presence: true
 
   belongs_to :user
   belongs_to :stock
