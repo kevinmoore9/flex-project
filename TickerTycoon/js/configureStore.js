@@ -9,10 +9,10 @@ import promise from './promise';
 //
 async function getToken() {
   const token = await AsyncStorage.getItem('SESSION_TOKEN');
-  console.log(token);
+  console.log('async config store: ' + token);
 }
 export default function configureStore(onCompletion:()=>void):any {
-  getToken();
+  // getToken();
   const enhancer = compose(
     applyMiddleware(thunk, promise),
     devTools({

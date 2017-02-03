@@ -45,15 +45,19 @@ class Dashboard extends Component {
 
   async getToken() {
     try {
-      const token = await AsyncStorage.getItem('SESSION_TOKEN');
-      this.props.logout(token);
+      let token = await AsyncStorage.getItem('SESSION_TOKEN');
+      await this.props.logout(token);
+      console.log('before reset: ' + token);
+      token = await AsyncStorage.setItem('SESSION_TOKEN', '');
+      console.log('after reset: ' + token);
     } catch (error) {
       console.log('errors');
     }
   }
 
-  handleLogout() {
-    this.getToken();
+  async handleLogout() {
+    console.log('logout');
+    await this.getToken();
     this.props.reset(this.props.navigation.key);
   }
 
@@ -63,6 +67,7 @@ class Dashboard extends Component {
   }
 
   render() {
+    console.log('render dsh');
     return (
       <Container theme={myTheme} style={styles.container}>
         <Header>
@@ -100,6 +105,7 @@ function bindAction(dispatch) {
 const mapStateToProps = state => ({
   list: state.list.list,
   navigation: state.cardNavigation,
+  state,
 });
 
 export default connect(mapStateToProps, bindAction)(Dashboard);

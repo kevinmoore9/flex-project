@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Image, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Content, InputGroup, Input, Button, Icon, View } from 'native-base';
+import { Container, Content, InputGroup, Input, Button, Text, Icon, View } from 'native-base';
 import { signup, login } from '../../actions/session_actions';
 import { setUser } from '../../actions/user';
 
@@ -30,6 +30,7 @@ class Login extends Component {
     this.state = {
       email: '',
       password: '',
+      session: '',
     };
     this.formType = 'Log In';
     this.handleSignUp = this.handleSignUp.bind(this);
@@ -37,23 +38,52 @@ class Login extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  setUser(name) {
-    this.props.setUser(name);
+  async _redirectIfLoggedIn() {
+    const token = await AsyncStorage.getItem('SESSION_TOKEN');
+    console.log(' async pre redirect: ' + token);
+    if (token !== null) {
+      this.replaceRoute('dashboard');
+    }
+  }
+
+  async componentWillMount() {
+    await this._redirectIfLoggedIn();
+  }
+
+  // setUser(name) {
+  //   this.props.setUser(name);
+  // }
+  shouldComponentUpdate() {
+    return false;
   }
 
   replaceRoute(route) {
     this.props.replaceAt('login', { key: route }, this.props.navigation.key);
   }
 
-
+  loginCredentials() {
+    return {
+      email: this.state.email,
+      password: this.state.password,
+    };
+  }
   handleSignUp() {
     this.props.signup(this.state);
     this.replaceRoute('dashboard');
   }
 
-  handleLogIn() {
-    this.props.login(this.state);
-    this.replaceRoute('dashboard');
+  async handleLogIn() {
+    await this.props.login(this.loginCredentials());
+    let token = null;
+    if (this.props.currentUser) {
+      token = this.props.currentUser.session_token;
+    }
+    console.log('async post: ' + token);
+    if (token !== null) {
+      this.replaceRoute('dashboard');
+    } else {
+      this.forceUpdate();
+    }
   }
 
   handleSubmit() {
@@ -65,7 +95,12 @@ class Login extends Component {
     this.forceUpdate();
   }
 
+  renderErrors() {
+
+  }
+
   render() {
+    console.log("render login");
     return (
       <Container>
         <View style={styles.container}>
@@ -85,7 +120,6 @@ class Login extends Component {
                   secureTextEntry
                 />
               </InputGroup>
-
               <Button style={styles.btn} onPress={() => this.handleSubmit()}>
                 {this.formType}
               </Button>
@@ -111,6 +145,7 @@ function bindActions(dispatch) {
 
 const mapStateToProps = (state) => {
   return {
+    state,
     currentUser: state.session.currentUser,
     errors: state.session.errors,
     navigation: state.cardNavigation,
