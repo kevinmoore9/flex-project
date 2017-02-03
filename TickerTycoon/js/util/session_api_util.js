@@ -46,18 +46,18 @@ export const signup = (user) => {
   );
 };
 
-export const get = (token) => {
-  debugger
-  return (
-    fetch('http://localhost:3000/api/user', {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        session_token: token,
-      }),
-    }).then(res => res.json())
-  );
-};
+// export const get = (token) => {
+//   debugger
+//   return (
+//     fetch('http://localhost:3000/api/user', {
+//       method: 'GET',
+//       headers: {
+//         'Accept': 'application/json',
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({
+//         session_token: token,
+//       }),
+//     }).then(res => res.json())
+//   );
+// };

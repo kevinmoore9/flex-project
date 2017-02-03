@@ -4,7 +4,7 @@ import { Image, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Content, InputGroup, Input, Button, Text, Icon, View } from 'native-base';
-import { signup, login } from '../../actions/session_actions';
+import { signup, login, receiveCurrentUser } from '../../actions/session_actions';
 import { setUser } from '../../actions/user';
 
 import styles from './styles';
@@ -38,16 +38,29 @@ class Login extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  async _redirectIfLoggedIn() {
-    const token = await AsyncStorage.getItem('SESSION_TOKEN');
-    console.log(' async pre redirect: ' + token);
-    if (token !== null) {
-      this.replaceRoute('dashboard');
+  _redirectIfLoggedIn() {
+    if (this.props.currentUser) {
+      const token = this.props.currentUser.session_token;
+      if (token !== null) {
+        console.log('redirect to dash');
+        this.replaceRoute('dashboard');
+      }
+    }
+  }
+
+  async checkCurrentUser() {
+    if (this.props.currentUser === null) {
+      console.log('checkCurrentUser');
+      let currentUser = await AsyncStorage.getItem('CURRENT_USER');
+      currentUser =  JSON.parse(currentUser);
+      this.props.receiveCurrentUser(currentUser);
+
     }
   }
 
   async componentWillMount() {
-    await this._redirectIfLoggedIn();
+    await this.checkCurrentUser();
+    this._redirectIfLoggedIn();
   }
 
   // setUser(name) {
@@ -140,6 +153,7 @@ function bindActions(dispatch) {
     setUser: name => dispatch(setUser(name)),
     login: user => dispatch(login(user)),
     signup: user => dispatch(signup(user)),
+    receiveCurrentUser: user => dispatch(receiveCurrentUser(user)),
   };
 }
 

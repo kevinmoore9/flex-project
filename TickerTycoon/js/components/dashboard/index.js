@@ -45,23 +45,18 @@ class Dashboard extends Component {
 
   async getToken() {
     try {
-      // debugger
-      let token = await AsyncStorage.getItem('SESSION_TOKEN');
-      // debugger
-      // console.log('session_token: ' + this.props.currentUser.session_token);
-      // console.log('async_token: ' + token);
-      await this.props.logout(token);
-      // console.log('before reset: ' + token);
-      token = await AsyncStorage.setItem('SESSION_TOKEN', '');
-      console.log('after reset: ' + token);
+      console.log('dash logout');
+      await this.props.logout(this.props.currentUser.session_token);
+      console.log('dash empty current user');
+      await AsyncStorage.setItem('CURRENT_USER', '');
     } catch (error) {
-      console.log('errors');
+      console.log('error logging out');
     }
   }
 
   async handleLogout() {
-    console.log('logout');
     await this.getToken();
+    console.log('dash reset');
     this.props.reset(this.props.navigation.key);
   }
 
