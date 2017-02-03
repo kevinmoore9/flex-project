@@ -6,11 +6,13 @@ import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Title, Content, Text, Button, Icon } from 'native-base';
 import { Grid, Row } from 'react-native-easy-grid';
+import Highcharts from 'highcharts';
 
 import { openDrawer } from '../../actions/drawer';
 import { setIndex } from '../../actions/list';
 import myTheme from '../../themes/base-theme';
 import styles from './styles';
+
 
 const {
   reset,
@@ -84,6 +86,79 @@ class Dashboard extends Component {
     }),
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      lineChart: null
+    };
+
+    this.createLineChart = this.createLineChart.bind(this);
+  }
+
+  componentWillMount() {
+    fetch('https://facebook.github.io/react-native/movies.json')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.createLineChart(responseJson);
+      });
+  }
+
+  createLineChart = (data) => {
+    let lineChart = new Highcharts.Chart({
+      chart: {
+        zoomType: 'x'
+      },
+      title: {
+        text: 'USD to EUR exchange rate over time'
+      },
+      xAxis: {
+        type: 'datetime'
+      },
+      yAxis: {
+        title: {
+          text: 'Exchange rate'
+        }
+      },
+      legend: {
+        enabled: false
+      },
+      plotOptions: {
+        area: {
+          fillColor: {
+            linearGradient: {
+              x1: 0,
+              y1: 0,
+              x2: 0,
+              y2: 1
+            },
+            stops: [
+              [0, Highcharts.getOptions().colors[0]],
+              [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+            ]
+          },
+          marker: {
+            radius: 2
+          },
+          lineWidth: 1,
+          states: {
+            hover: {
+              lineWidth: 1
+            }
+          },
+          threshold: null
+        }
+      },
+
+      series: [{
+        type: 'area',
+        name: 'USD to EUR',
+        data: data
+      }]
+    });
+    this.setState({ lineChart });
+  };
+
+
   pushRoute(route, index) {
     this.props.setIndex(index);
     this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
@@ -108,6 +183,12 @@ class Dashboard extends Component {
           <Text>
             Dashboard content goes here...
           </Text>
+          <WebView>
+            style={{
+              height: 400,
+            }}
+            source={ this.state.lineChart }
+          </WebView>
 
           <WebView
             style={{

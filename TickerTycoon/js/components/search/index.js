@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Title, Content, Text, Button, Icon } from 'native-base';
+import { Container, Header, Title, Content, Text, Input, Button, Icon, InputGroup } from 'native-base';
 
 import { openDrawer } from '../../actions/drawer';
 import styles from './styles';
@@ -24,13 +24,42 @@ class Search extends Component {
     }),
   }
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      searchResults: [],
+    };
+  }
+
   popRoute() {
     this.props.popRoute(this.props.navigation.key);
   }
 
-  render() {
-    const { props: { name, index, list } } = this;
+  queryTickers(str) {
+    console.log(str);
+    // fetch(`http://d.yimg.com/autoc.finance.yahoo.com/autoc?query=${str}&region=1&lang=en&callback=YAHOO.Finance.SymbolSuggest.ssCallback`)
+    //   .then((response) => {
+    //     console.log(response);
+    //   })
+    //   .catch((error) => {
+    //     console.log('it failed :(');
+    //     console.log(error);
+    //   });
+    fetch(`http://d.yimg.com/autoc.finance.yahoo.com/autoc?query=${str}&region=1&lang=en&callback=YAHOO.Finance.SymbolSuggest.ssJSON`, {method: "GET"})
+    .then(res => res.text())
+    .then((txt) => {
+      const regex = /^YAHOO.Finance.SymbolSuggest.ssJSON\((.*)\);$/g;
+      const match = regex.exec(txt);
+      const tickerObj = JSON.parse(match[1]);
+      const resultSet = tickerObj.ResultSet.Result;
+      const resultArr = resultSet.map((r) => r.symbol);
+      console.log(resultArr);
+    })
+    .catch(error => console.log(error));
+  }
 
+  render() {
     return (
       <Container style={styles.container}>
         <Header>
@@ -46,9 +75,17 @@ class Search extends Component {
         </Header>
 
         <Content padder>
-          <Text>
-            Search stuff goes here...
-          </Text>
+          <InputGroup>
+            <Icon name="ios-search" />
+            <Input
+              placeholder="Search"
+              onChangeText={searchString => this.queryTickers(searchString)}
+            />
+            <Icon name="ios-people" />
+          </InputGroup>
+          <Button transparent>
+              Search
+          </Button>
         </Content>
       </Container>
     );
