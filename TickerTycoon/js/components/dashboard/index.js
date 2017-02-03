@@ -12,15 +12,67 @@ import { setIndex } from '../../actions/list';
 import myTheme from '../../themes/base-theme';
 import styles from './styles';
 
-// import LineChart from './charts/lineChart';
-
 const {
   reset,
   pushRoute,
 } = actions;
 
-class Dashboard extends Component {
+const pieWebView = `
+  <html>
+    <head>
+      <!--Load the AJAX API-->
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
 
+        // Load the Visualization API and the corechart package.
+        google.charts.load('current', {'packages':['corechart']});
+
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.charts.setOnLoadCallback(drawChart);
+
+        // Callback that creates and populates a data table,
+        // instantiates the pie chart, passes in the data and
+        // draws it.
+        function drawChart() {
+
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Ticker');
+          data.addColumn('number', 'Shares');
+          data.addRows([
+            ['AAPL', 3],
+            ['GOOG', 1],
+            ['MSFT', 1],
+            ['TSLA', 6],
+            ['LMT', 2]
+          ]);
+
+          // Set chart options
+          var options = {'title':'Portfolio Overview',
+                          legend: {
+                            position: 'top', textStyle: {
+                              color: 'blue', fontSize: 16
+                            }
+                          },
+                          height: '100%',
+                          width: '100%'
+                        };
+
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+          chart.draw(data, options);
+        }
+      </script>
+    </head>
+
+    <body>
+      <!--Div that will hold the pie chart-->
+      <div id="chart_div"></div>
+    </body>
+  </html>
+`;
+
+class Dashboard extends Component {
   static propTypes = {
     name: React.PropTypes.string,
     setIndex: React.PropTypes.func,
@@ -56,17 +108,12 @@ class Dashboard extends Component {
           <Text>
             Dashboard content goes here...
           </Text>
+
           <WebView
             style={{
-              backgroundColor: '#F5F5F5',
-              height: 250,
+              height: 400,
             }}
-            source={{ html:
-              `<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-              `
-            }}
-            scalesPageToFit={true}
+            source={{ html: pieWebView }}
           />
         </Content>
       </Container>
