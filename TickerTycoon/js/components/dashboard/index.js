@@ -45,9 +45,13 @@ class Dashboard extends Component {
 
   async getToken() {
     try {
+      // debugger
       let token = await AsyncStorage.getItem('SESSION_TOKEN');
+      // debugger
+      // console.log('session_token: ' + this.props.currentUser.session_token);
+      // console.log('async_token: ' + token);
       await this.props.logout(token);
-      console.log('before reset: ' + token);
+      // console.log('before reset: ' + token);
       token = await AsyncStorage.setItem('SESSION_TOKEN', '');
       console.log('after reset: ' + token);
     } catch (error) {
@@ -103,6 +107,7 @@ function bindAction(dispatch) {
 }
 
 const mapStateToProps = state => ({
+  currentUser: state.session.currentUser,
   list: state.list.list,
   navigation: state.cardNavigation,
   state,

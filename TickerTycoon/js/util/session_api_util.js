@@ -47,6 +47,7 @@ export const signup = (user) => {
 };
 
 export const get = (token) => {
+  debugger
   return (
     fetch('http://localhost:3000/api/user', {
       method: 'GET',

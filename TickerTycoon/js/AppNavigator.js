@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { BackAndroid, StatusBar, NavigationExperimental } from 'react-native';
+import { BackAndroid, StatusBar, NavigationExperimental, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import { Drawer } from 'native-base';
 import { actions } from 'react-native-navigation-redux-helpers';
@@ -14,6 +14,8 @@ import SplashPage from './components/splashscreen/';
 import SideBar from './components/sideBar';
 import { statusBarColor } from './themes/base-theme';
 
+import { getUser } from './actions/session_actions';
+
 const {
   popRoute,
 } = actions;
@@ -25,6 +27,7 @@ const {
 class AppNavigator extends Component {
 
   static propTypes = {
+    getUser: React.PropTypes.func,
     drawerState: React.PropTypes.string,
     popRoute: React.PropTypes.func,
     closeDrawer: React.PropTypes.func,
@@ -33,8 +36,16 @@ class AppNavigator extends Component {
       routes: React.PropTypes.array,
     }),
   }
+  async updatePreloadedState() {
+    const token = await AsyncStorage.getItem('SESSION_TOKEN');
+    console.log('mounts: ' + token);
+    if (token !== null) {
+      await this.props.getUser(token);
+    }
+  }
 
   componentDidMount() {
+    this.updatePreloadedState();
     BackAndroid.addEventListener('hardwareBackPress', () => {
       const routes = this.props.navigation.routes;
 
@@ -132,6 +143,7 @@ class AppNavigator extends Component {
 
 function bindAction(dispatch) {
   return {
+    getUser: token => dispatch(getUser(token)),
     closeDrawer: () => dispatch(closeDrawer()),
     popRoute: key => dispatch(popRoute(key)),
   };

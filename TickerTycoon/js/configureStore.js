@@ -6,13 +6,8 @@ import { persistStore } from 'redux-persist';
 import reducer from './reducers';
 import promise from './promise';
 
-//
-async function getToken() {
-  const token = await AsyncStorage.getItem('SESSION_TOKEN');
-  console.log('async config store: ' + token);
-}
+
 export default function configureStore(onCompletion:()=>void):any {
-  // getToken();
   const enhancer = compose(
     applyMiddleware(thunk, promise),
     devTools({
