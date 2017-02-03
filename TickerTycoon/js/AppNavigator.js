@@ -36,16 +36,16 @@ class AppNavigator extends Component {
       routes: React.PropTypes.array,
     }),
   }
-  async updatePreloadedState() {
-    const token = await AsyncStorage.getItem('SESSION_TOKEN');
-    console.log('mounts: ' + token);
-    if (token !== null) {
-      await this.props.getUser(token);
-    }
-  }
+  // async updatePreloadedState() {
+  //   const token = await AsyncStorage.getItem('SESSION_TOKEN');
+  //   console.log('mounts: ' + token);
+  //   if (token !== null) {
+  //     await this.props.getUser(token);
+  //   }
+  // }
 
   componentDidMount() {
-    this.updatePreloadedState();
+    // this.updatePreloadedState();
     BackAndroid.addEventListener('hardwareBackPress', () => {
       const routes = this.props.navigation.routes;
 

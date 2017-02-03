@@ -35,7 +35,6 @@ const SessionReducer = (state = _nullUser, action) => {
           currentUser,
         });
       }
-      debugger
       return newState;
     case LOGOUT:
       return merge({}, _nullUser);
