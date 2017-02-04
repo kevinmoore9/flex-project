@@ -44,7 +44,17 @@
       <dict>
         <key>localhost</key>
         <dict>
-          <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+          <key>NSExceptionAllowsInsecureHTTPLoads</key>
+          <true/>
+        </dict>
+        <key>d.yimg.com</key>
+        <dict>
+          <key>NSExceptionAllowsInsecureHTTPLoads</key>
+          <true/>
+        </dict>
+        <key>finance.yahoo.com</key>
+        <dict>
+          <key>NSExceptionAllowsInsecureHTTPLoads</key>
           <true/>
         </dict>
       </dict>
