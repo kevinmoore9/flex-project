@@ -7,6 +7,7 @@ import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Title, Content, Text, Button, Icon } from 'native-base';
 import { Grid, Row } from 'react-native-easy-grid';
 import Highcharts from 'highcharts';
+import ChartView from 'react-native-highcharts';
 
 import { logout } from '../../actions/session_actions';
 import { openDrawer } from '../../actions/drawer';
@@ -38,7 +39,7 @@ const pieWebView = `
         function drawChart() {
 
           // Create the data table.
-          var data = new google.visualization.DataTable();
+          let data = new google.visualization.DataTable();
           data.addColumn('string', 'Ticker');
           data.addColumn('number', 'Shares');
           data.addRows([
@@ -50,7 +51,7 @@ const pieWebView = `
           ]);
 
           // Set chart options
-          var options = {'title':'Portfolio Overview',
+          let options = {'title':'Portfolio Overview',
                           legend: {
                             position: 'top', textStyle: {
                               color: 'blue', fontSize: 16
@@ -61,7 +62,7 @@ const pieWebView = `
                         };
 
           // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+          let chart = new google.visualization.PieChart(document.getElementById('chart_div'));
           chart.draw(data, options);
         }
       </script>
@@ -90,12 +91,11 @@ class Dashboard extends Component {
     super();
 
     this.state = {
-      lineChart: null
+      lineChart: null,
     };
 
     this.handleLogout = this.handleLogout.bind(this);
     this.getToken = this.getToken.bind(this);
-    this.createLineChart = this.createLineChart.bind(this);
   }
 
 
@@ -122,76 +122,70 @@ class Dashboard extends Component {
   }
 
   render() {
-    var Highcharts='Highcharts';
-    var conf={
+    let Highcharts = 'Highcharts';
+    let conf = {
       chart: {
         type: 'spline',
-        animation: Highcharts.svg, // don't animate in old IE
+        animation: Highcharts.svg,
         marginRight: 10,
         events: {
           load: function () {
-
-            // set up the updating of the chart each second
-            var series = this.series[0];
+            let series = this.series[0];
             setInterval(function () {
-                var x = (new Date()).getTime(), // current time
-                    y = Math.random();
-                series.addPoint([x, y], true, true);
+              let x = (new Date()).getTime()
+              let y = Math.random();
+              series.addPoint([x, y], true, true);
             }, 1000);
-          }
-        }
+          },
+        },
       },
       title: {
-          text: 'Live random data'
+        text: 'Live random data',
       },
       xAxis: {
-          type: 'datetime',
-          tickPixelInterval: 150
+        type: 'datetime',
+        tickPixelInterval: 150,
       },
       yAxis: {
-          title: {
-              text: 'Value'
-          },
-          plotLines: [{
-              value: 0,
-              width: 1,
-              color: '#808080'
-          }]
+        title: {
+          text: 'Value',
+        },
+        plotLines: [{
+          value: 0,
+          width: 1,
+          color: '#808080',
+        }],
       },
       tooltip: {
-          formatter: function () {
-              return '<b>' + this.series.name + '</b><br/>' +
-                  Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
-                  Highcharts.numberFormat(this.y, 2);
-          }
+        formatter: function () {
+          return '<b>' + this.series.name + '</b><br/>' +
+            Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+            Highcharts.numberFormat(this.y, 2);
+        },
       },
       legend: {
-          enabled: false
+        enabled: false,
       },
       exporting: {
-          enabled: false
+        enabled: false,
       },
       series: [{
-          name: 'Random data',
-          data: (function () {
-              // generate an array of random data
-              var data = [],
-                  time = (new Date()).getTime(),
-                  i;
+        name: 'Random data',
+        data: (function () {
+          let data = []
+          let time = (new Date()).getTime()
+          let i;
 
-              for (i = -19; i <= 0; i += 1) {
-                  data.push({
-                      x: time + i * 1000,
-                      y: Math.random()
-                  });
-              }
-              return data;
-          }())
-      }]
-  };
-    return (
-      <ChartView style={{height:300}} config={conf}></ChartView>
-    );
+          for (i = -19; i <= 0; i += 1) {
+            data.push({
+              x: time + i * 1000,
+              y: Math.random()
+            });
+          }
+          return data;
+        }()),
+      }],
+    };
     return (
       <Container theme={myTheme} style={styles.container}>
         <Header>
@@ -210,13 +204,7 @@ class Dashboard extends Component {
           <Text>
             Dashboard content goes here...
           </Text>
-          <WebView>
-            style={{
-              height: 400,
-            }}
-            source={ this.state.lineChart }
-          </WebView>
-
+          <ChartView style={{ height: 300 }} config={conf} />
           <WebView
             style={{
               height: 400,

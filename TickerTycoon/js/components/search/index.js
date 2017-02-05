@@ -42,7 +42,7 @@ class Search extends Component {
       loading: true,
     });
 
-    fetch(`http://d.yimg.com/autoc.finance.yahoo.com/autoc?query=${str}&region=1&lang=en&callback=YAHOO.Finance.SymbolSuggest.ssJSON`, {method: "GET"})
+    fetch(`http://d.yimg.com/autoc.finance.yahoo.com/autoc?query=${str}&region=1&lang=en&callback=YAHOO.Finance.SymbolSuggest.ssJSON`, { method: 'GET' })
     .then(res => res.text())
     .then((txt) => {
       const regex = /^YAHOO.Finance.SymbolSuggest.ssJSON\((.*)\);$/g;
