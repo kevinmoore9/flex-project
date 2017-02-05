@@ -9,6 +9,8 @@ import { Container, Header, Title, Content, Text, Input,
 import { openDrawer } from '../../actions/drawer';
 import styles from './styles';
 
+import { updateStock } from '../../actions/stock';
+
 const {
   popRoute,
 } = actions;
@@ -16,6 +18,7 @@ const {
 class Search extends Component {
 
   static propTypes = {
+    updateStock: React.PropTypes.func,
     index: React.PropTypes.number,
     openDrawer: React.PropTypes.func,
     popRoute: React.PropTypes.func,
@@ -31,6 +34,7 @@ class Search extends Component {
       results: [],
       loading: false,
     };
+    this.handlePress = this.handlePress.bind(this);
   }
 
   popRoute() {
@@ -52,6 +56,10 @@ class Search extends Component {
       this.setState({ results, loading: false });
     })
     .catch(error => console.log(error));
+  }
+
+  handlePress(ticker) {
+    this.props.updateStock(ticker);
   }
 
   render() {
@@ -78,7 +86,7 @@ class Search extends Component {
             />
           </InputGroup>
           {this.state.loading ? <Spinner /> : <List dataArray={this.state.results} renderRow={item =>
-            <ListItem button onPress={()=> console.log(item)} >
+            <ListItem button onPress={() => this.handlePress(item.symbol)} >
               <Text>{item.symbol}</Text>
               <Text style={{ color: '#007594' }}>{item.name}</Text>
             </ListItem>
@@ -93,6 +101,7 @@ function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
     popRoute: key => dispatch(popRoute(key)),
+    updateStock: ticker => dispatch(updateStock(ticker)),
   };
 }
 
