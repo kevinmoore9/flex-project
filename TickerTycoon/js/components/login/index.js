@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Image, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Content, InputGroup, Input, Button, Text, Icon, View } from 'native-base';
+import { Container, Content, InputGroup, Input, Button, Text, Icon, View, List, ListItem } from 'native-base';
 import { signup, login, receiveCurrentUser } from '../../actions/session_actions';
 import { setUser } from '../../actions/user';
 
@@ -63,9 +63,7 @@ class Login extends Component {
     this._redirectIfLoggedIn();
   }
 
-  // setUser(name) {
-  //   this.props.setUser(name);
-  // }
+
   shouldComponentUpdate() {
     return false;
   }
@@ -80,9 +78,18 @@ class Login extends Component {
       password: this.state.password,
     };
   }
-  handleSignUp() {
-    this.props.signup(this.state);
-    this.replaceRoute('dashboard');
+
+  async handleSignUp() {
+    await this.props.signup(this.loginCredentials());
+    let token = null;
+    if (this.props.currentUser) {
+      token = this.props.currentUser.session_token;
+    }
+    if (token !== null) {
+      this.replaceRoute('dashboard');
+    } else {
+      this.forceUpdate();
+    }
   }
 
   async handleLogIn() {
@@ -91,7 +98,6 @@ class Login extends Component {
     if (this.props.currentUser) {
       token = this.props.currentUser.session_token;
     }
-    console.log('async post: ' + token);
     if (token !== null) {
       this.replaceRoute('dashboard');
     } else {
@@ -108,12 +114,22 @@ class Login extends Component {
     this.forceUpdate();
   }
 
-  renderErrors() {
 
+  renderErrors() {
+    return (
+      <List>
+        {this.props.errors.map((error, i) => (
+          <ListItem key={`error-${i}`}>
+            <Text>
+              {error}
+            </Text>
+          </ListItem>
+      ))}
+      </List>
+    );
   }
 
   render() {
-    console.log("render login");
     return (
       <Container>
         <View style={styles.container}>
@@ -133,6 +149,7 @@ class Login extends Component {
                   secureTextEntry
                 />
               </InputGroup>
+              {this.renderErrors()}
               <Button style={styles.btn} onPress={() => this.handleSubmit()}>
                 {this.formType}
               </Button>

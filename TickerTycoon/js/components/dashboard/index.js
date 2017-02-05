@@ -185,7 +185,6 @@ class Dashboard extends Component {
   }
 
   render() {
-    console.log('render dsh');
     return (
       <Container theme={myTheme} style={styles.container}>
         <Header>

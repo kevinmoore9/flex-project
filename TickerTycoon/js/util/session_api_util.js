@@ -1,5 +1,5 @@
 export const login = user => (
-   fetch('http://localhost:3000/api/session', {
+   fetch('https://ticker-backend.herokuapp.com/api/session', {
      method: 'POST',
      headers: {
        'Accept': 'application/json',
@@ -15,7 +15,7 @@ export const login = user => (
 
 export const logout = (token) => {
   return (
-   fetch('http://localhost:3000/api/session', {
+   fetch('https://ticker-backend.herokuapp.com/api/session', {
      method: 'DELETE',
      headers: {
        'Accept': 'application/json',
@@ -31,7 +31,7 @@ export const logout = (token) => {
 
 export const signup = (user) => {
   return (
-   fetch('http://localhost:3000/api/user', {
+   fetch('https://ticker-backend.herokuapp.com/api/user', {
      method: 'POST',
      headers: {
        'Accept': 'application/json',
@@ -49,7 +49,7 @@ export const signup = (user) => {
 // export const get = (token) => {
 //   debugger
 //   return (
-//     fetch('http://localhost:3000/api/user', {
+//     fetch('https://ticker-backend.herokuapp.com/api/user', {
 //       method: 'GET',
 //       headers: {
 //         'Accept': 'application/json',
