@@ -20,61 +20,6 @@ const {
   pushRoute,
 } = actions;
 
-const pieWebView = `
-  <html>
-    <head>
-      <!--Load the AJAX API-->
-      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-      <script type="text/javascript">
-
-        // Load the Visualization API and the corechart package.
-        google.charts.load('current', {'packages':['corechart']});
-
-        // Set a callback to run when the Google Visualization API is loaded.
-        google.charts.setOnLoadCallback(drawChart);
-
-        // Callback that creates and populates a data table,
-        // instantiates the pie chart, passes in the data and
-        // draws it.
-        function drawChart() {
-
-          // Create the data table.
-          let data = new google.visualization.DataTable();
-          data.addColumn('string', 'Ticker');
-          data.addColumn('number', 'Shares');
-          data.addRows([
-            ['AAPL', 3],
-            ['GOOG', 1],
-            ['MSFT', 1],
-            ['TSLA', 6],
-            ['LMT', 2]
-          ]);
-
-          // Set chart options
-          let options = {'title':'Portfolio Overview',
-                          legend: {
-                            position: 'top', textStyle: {
-                              color: 'blue', fontSize: 16
-                            }
-                          },
-                          height: '100%',
-                          width: '100%'
-                        };
-
-          // Instantiate and draw our chart, passing in some options.
-          let chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-          chart.draw(data, options);
-        }
-      </script>
-    </head>
-
-    <body>
-      <!--Div that will hold the pie chart-->
-      <div id="chart_div"></div>
-    </body>
-  </html>
-`;
-
 class Dashboard extends Component {
   static propTypes = {
     logout: React.PropTypes.func,
@@ -123,7 +68,51 @@ class Dashboard extends Component {
 
   render() {
     let Highcharts = 'Highcharts';
-    let conf = {
+    let confPie = {
+      chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: 0,
+        plotShadow: false,
+      },
+      title: {
+        text: 'Breakdown',
+        align: 'center',
+        verticalAlign: 'middle',
+        y: 40,
+      },
+      tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+      },
+      plotOptions: {
+        pie: {
+          dataLabels: {
+            enabled: true,
+            distance: -50,
+            style: {
+              fontWeight: 'bold',
+              color: 'white',
+            },
+          },
+          startAngle: -90,
+          endAngle: 90,
+          center: ['50%', '75%'],
+        },
+      },
+      series: [{
+        type: 'pie',
+        name: 'Portfolio share',
+        innerSize: '50%',
+        data: [
+          ['AAPL', 10],
+          ['MSFT', 12],
+          ['LMT', 22],
+          ['INO', 5],
+          ['AMD', 2],
+        ],
+      }],
+    };
+
+    let confLine = {
       chart: {
         type: 'spline',
         animation: Highcharts.svg,
@@ -140,7 +129,7 @@ class Dashboard extends Component {
         },
       },
       title: {
-        text: 'Live random data',
+        text: 'Your Portfolio Value',
       },
       xAxis: {
         type: 'datetime',
@@ -148,7 +137,7 @@ class Dashboard extends Component {
       },
       yAxis: {
         title: {
-          text: 'Value',
+          text: 'Value ($)',
         },
         plotLines: [{
           value: 0,
@@ -170,7 +159,7 @@ class Dashboard extends Component {
         enabled: false,
       },
       series: [{
-        name: 'Random data',
+        name: 'Portfolio Value',
         data: (function () {
           let data = []
           let time = (new Date()).getTime()
@@ -204,13 +193,8 @@ class Dashboard extends Component {
           <Text>
             Dashboard content goes here...
           </Text>
-          <ChartView style={{ height: 300 }} config={conf} />
-          <WebView
-            style={{
-              height: 400,
-            }}
-            source={{ html: pieWebView }}
-          />
+          <ChartView style={{ height: 300 }} config={confLine} />
+          <ChartView style={{ height: 300 }} config={confPie} />
         </Content>
       </Container>
     );

@@ -55,23 +55,6 @@ class Search extends Component {
   }
 
   render() {
-    let tickerItems;
-    let tickers = this.state.results;
-    console.log(tickers[0]);
-    if (tickers.length > 0) {
-      tickerItems = tickers.map(ticker => (
-        <ListItem iconLeft key={ticker.symbol}>
-          <Text>{ticker.symbol}</Text>
-        </ListItem>
-      ));
-    } else {
-      tickerItems = (
-        <ListItem>
-          <Text>No Results</Text>
-        </ListItem>
-      );
-    }
-
     return (
       <Container style={styles.container}>
         <Header>
@@ -93,7 +76,6 @@ class Search extends Component {
               placeholder="Search"
               onChangeText={searchString => this.queryTickers(searchString)}
             />
-            <Icon name="ios-people" />
           </InputGroup>
           {this.state.loading ? <Spinner /> : <List dataArray={this.state.results} renderRow={item =>
             <ListItem button onPress={()=> console.log(item)} >
