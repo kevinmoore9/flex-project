@@ -116,75 +116,82 @@ class Dashboard extends Component {
     this.props.reset(this.props.navigation.key);
   }
 
-  componentWillMount() {
-    fetch('https://facebook.github.io/react-native/movies.json')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.createLineChart(responseJson);
-      });
-  }
-
-  createLineChart = (data) => {
-    let lineChart = new Highcharts.Chart({
-      chart: {
-        zoomType: 'x'
-      },
-      title: {
-        text: 'USD to EUR exchange rate over time'
-      },
-      xAxis: {
-        type: 'datetime'
-      },
-      yAxis: {
-        title: {
-          text: 'Exchange rate'
-        }
-      },
-      legend: {
-        enabled: false
-      },
-      plotOptions: {
-        area: {
-          fillColor: {
-            linearGradient: {
-              x1: 0,
-              y1: 0,
-              x2: 0,
-              y2: 1
-            },
-            stops: [
-              [0, Highcharts.getOptions().colors[0]],
-              [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-            ]
-          },
-          marker: {
-            radius: 2
-          },
-          lineWidth: 1,
-          states: {
-            hover: {
-              lineWidth: 1
-            }
-          },
-          threshold: null
-        }
-      },
-
-      series: [{
-        type: 'area',
-        name: 'USD to EUR',
-        data: data
-      }]
-    });
-    this.setState({ lineChart });
-  };
-
   pushRoute(route, index) {
     this.props.setIndex(index);
     this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
 
   render() {
+    var Highcharts='Highcharts';
+    var conf={
+      chart: {
+        type: 'spline',
+        animation: Highcharts.svg, // don't animate in old IE
+        marginRight: 10,
+        events: {
+          load: function () {
+
+            // set up the updating of the chart each second
+            var series = this.series[0];
+            setInterval(function () {
+                var x = (new Date()).getTime(), // current time
+                    y = Math.random();
+                series.addPoint([x, y], true, true);
+            }, 1000);
+          }
+        }
+      },
+      title: {
+          text: 'Live random data'
+      },
+      xAxis: {
+          type: 'datetime',
+          tickPixelInterval: 150
+      },
+      yAxis: {
+          title: {
+              text: 'Value'
+          },
+          plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+          }]
+      },
+      tooltip: {
+          formatter: function () {
+              return '<b>' + this.series.name + '</b><br/>' +
+                  Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                  Highcharts.numberFormat(this.y, 2);
+          }
+      },
+      legend: {
+          enabled: false
+      },
+      exporting: {
+          enabled: false
+      },
+      series: [{
+          name: 'Random data',
+          data: (function () {
+              // generate an array of random data
+              var data = [],
+                  time = (new Date()).getTime(),
+                  i;
+
+              for (i = -19; i <= 0; i += 1) {
+                  data.push({
+                      x: time + i * 1000,
+                      y: Math.random()
+                  });
+              }
+              return data;
+          }())
+      }]
+  };
+    return (
+      <ChartView style={{height:300}} config={conf}></ChartView>
+    );
     return (
       <Container theme={myTheme} style={styles.container}>
         <Header>
