@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { TouchableOpacity, View, WebView, AsyncStorage } from 'react-native';
+import { TouchableOpacity, View, Image, WebView, AsyncStorage } from 'react-native';
 
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
@@ -190,9 +190,6 @@ class Dashboard extends Component {
         </Header>
 
         <Content>
-          <Text>
-            Dashboard content goes here...
-          </Text>
           <ChartView style={{ height: 300 }} config={confLine} />
           <ChartView style={{ height: 300 }} config={confPie} />
         </Content>

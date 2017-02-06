@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Modal, Image, Platform } from 'react-native';
+import { Modal, Image, Platform, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Title, Content, Text, Input,
@@ -73,6 +73,8 @@ class Search extends Component {
   }
 
   render() {
+    let deviceWidth = Dimensions.get('window').width;
+
     return (
       <Container style={styles.container}>
         <Header>
@@ -125,8 +127,10 @@ class Search extends Component {
                 </CardItem>
                 <CardItem>
                   <Image
+                    resizeMode="contain"
+                    style={{ height: 180 }}
                     source={{
-                      uri: `http://chart.finance.yahoo.com/z?s=${this.state.selectedStock.Symbol}&t=1M&key=${Math.random()}`,
+                      uri: `https://chart.finance.yahoo.com/z?s=${this.state.selectedStock.Symbol}&t=1M&key=${Math.random()}`,
                     }}
                   />
                 </CardItem>
