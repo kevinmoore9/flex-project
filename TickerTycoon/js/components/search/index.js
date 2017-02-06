@@ -69,7 +69,7 @@ class Search extends Component {
           stockModalOpen: true,
         });
       });
-    console.log(this.state.selectedStock);
+      console.log(`http://chart.finance.yahoo.com/z?s=${this.state.selectedStock.Symbol}&t=1M&key=${Math.random()}`);
   }
 
   render() {
@@ -113,11 +113,22 @@ class Search extends Component {
             {this.state.selectedStock &&
               <Card style={{ paddingTop: 20 }} >
                 <CardItem header>
-                  <Text>{this.state.selectedStock.name}</Text>
+                  <Text>{this.state.selectedStock.Name}</Text>
+                </CardItem>
+                <CardItem cardBody style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                  <Button onPress={() => console.log('I bought something!')}>
+                    Buy {this.state.selectedStock.Symbol}
+                  </Button>
+                  <Button onPress={() => console.log('I sold something!')}>
+                    Sell {this.state.selectedStock.Symbol}
+                  </Button>
                 </CardItem>
                 <CardItem>
-                  <Button>Buy {this.state.selectedStock.symbol}</Button>
-                  <Button>Sell {this.state.selectedStock.symbol}</Button>
+                  <Image
+                    source={{
+                      uri: `http://chart.finance.yahoo.com/z?s=${this.state.selectedStock.Symbol}&t=1M&key=${Math.random()}`,
+                    }}
+                  />
                 </CardItem>
                 <CardItem header>
                   <Button onPress={() => this.setState({ stockModalOpen: false })}>
