@@ -20,7 +20,6 @@ const SessionReducer = (state = _nullUser, action) => {
       const currentUser = action.currentUser;
       if (currentUser) {
         try {
-          console.log('reducer set current user');
           AsyncStorage.setItem('CURRENT_USER', JSON.stringify(currentUser));
         } catch (error) {
           console.log('error saving token');

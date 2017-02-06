@@ -46,9 +46,7 @@ class Dashboard extends Component {
 
   async getToken() {
     try {
-      console.log('dash logout');
       await this.props.logout(this.props.currentUser.session_token);
-      console.log('dash empty current user');
       await AsyncStorage.setItem('CURRENT_USER', '');
     } catch (error) {
       console.log('error logging out');
@@ -57,7 +55,6 @@ class Dashboard extends Component {
 
   async handleLogout() {
     await this.getToken();
-    console.log('dash reset');
     this.props.reset(this.props.navigation.key);
   }
 

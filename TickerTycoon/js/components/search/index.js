@@ -9,7 +9,7 @@ import { Container, Header, Title, Content, Text, Input,
 
 import { openDrawer } from '../../actions/drawer';
 import styles from './styles';
-
+import { trade } from '../../actions/trade';
 import { updateStock } from '../../actions/stock';
 import * as APIUtil from '../../util/stock_api_util';
 
@@ -21,6 +21,7 @@ class Search extends Component {
 
   static propTypes = {
     updateStock: React.PropTypes.func,
+    trade: React.PropTypes.func,
     index: React.PropTypes.number,
     openDrawer: React.PropTypes.func,
     popRoute: React.PropTypes.func,
@@ -40,6 +41,7 @@ class Search extends Component {
     };
     this.handlePress = this.handlePress.bind(this);
     this.queryTickers = this.queryTickers.bind(this);
+    this.handleTrade = this.handleTrade.bind(this);
   }
 
   popRoute() {
@@ -73,6 +75,16 @@ class Search extends Component {
           stockModalOpen: true,
         });
       });
+  }
+
+  handleTrade(type) {
+    const params = {
+      trade_type: type,
+      volume: 10,
+      ticker_sym: this.state.selectedStock.Symbol,
+      user_id: this.props.currentUser.id,
+    };
+    this.props.trade(params);
   }
 
   render() {
@@ -119,10 +131,10 @@ class Search extends Component {
                   <Text>{this.state.selectedStock.Name}</Text>
                 </CardItem>
                 <CardItem cardBody style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                  <Button onPress={() => console.log('I bought something!')}>
+                  <Button onPress={() => this.handleTrade('BUY')}>
                     Buy {this.state.selectedStock.Symbol}
                   </Button>
-                  <Button onPress={() => console.log('I sold something!')}>
+                  <Button onPress={() => this.handleTrade('SELL')}>
                     Sell {this.state.selectedStock.Symbol}
                   </Button>
                 </CardItem>
@@ -159,10 +171,12 @@ function bindAction(dispatch) {
     openDrawer: () => dispatch(openDrawer()),
     popRoute: key => dispatch(popRoute(key)),
     updateStock: ticker => dispatch(updateStock(ticker)),
+    trade: params => dispatch(trade(params)),
   };
 }
 
 const mapStateToProps = state => ({
+  currentUser: state.session.currentUser,
   navigation: state.cardNavigation,
   index: state.list.selectedIndex,
   list: state.list.list,

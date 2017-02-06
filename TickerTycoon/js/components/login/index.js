@@ -42,7 +42,6 @@ class Login extends Component {
     if (this.props.currentUser) {
       const token = this.props.currentUser.session_token;
       if (token !== null) {
-        console.log('redirect to dash');
         this.replaceRoute('dashboard');
       }
     }
@@ -50,7 +49,6 @@ class Login extends Component {
 
   async checkCurrentUser() {
     if (this.props.currentUser === null) {
-      console.log('checkCurrentUser');
       let currentUser = await AsyncStorage.getItem('CURRENT_USER');
       currentUser =  JSON.parse(currentUser);
       this.props.receiveCurrentUser(currentUser);
