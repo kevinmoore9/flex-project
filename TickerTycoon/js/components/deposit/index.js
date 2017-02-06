@@ -29,11 +29,11 @@ class Deposit extends Component {
   }
 
   popRoute() {
-    // this.props.popRoute(this.props.navigation.key);
+    this.props.popRoute(this.props.navigation.key);
   }
 
-  makeDeposit(params) {
-    this.props.deposit(params);
+  makeDeposit() {
+    this.props.deposit(this.state);
   }
 
   render() {
@@ -58,7 +58,9 @@ class Deposit extends Component {
               onChangeText={val => this.setState({ amount: val })}
             />
           </InputGroup>
-    
+          <Button style={styles.btn} onPress={() => this.makeDeposit()}>
+            Make Deposit
+          </Button>
         </Content>
       </Container>
     );

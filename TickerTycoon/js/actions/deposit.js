@@ -10,7 +10,6 @@ export const receiveCurrentUser = (currentUser) => {
 };
 
 export const deposit = params => (dispatch) => {
-  debugger
   return (APIUtil.deposit(params)
     .then(user => dispatch(receiveCurrentUser(user)))
   );

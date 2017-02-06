@@ -7,7 +7,7 @@ export const deposit = params => (
      },
      body: JSON.stringify({
        user: {
-         amount: params.amount,
+         amount: parseInt(params.amount, 10),
        } }),
    }).then(res => res.json())
 );
