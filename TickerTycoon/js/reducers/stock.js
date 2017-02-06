@@ -9,7 +9,7 @@ const StockReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_STOCK:
-      const stock = action.stock.query.results.quote;
+      const stock = action.stock;
       const newState = {
         symbol: stock.symbol,
         ask: stock.Ask,

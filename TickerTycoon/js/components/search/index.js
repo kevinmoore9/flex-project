@@ -1,15 +1,17 @@
 
 import React, { Component } from 'react';
+import { Modal, Image, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Title, Content, Text, Input,
          Button, Icon, Badge, InputGroup, List, ListItem,
-         Spinner } from 'native-base';
+         Spinner, Card, CardItem, View } from 'native-base';
 
 import { openDrawer } from '../../actions/drawer';
 import styles from './styles';
 
 import { updateStock } from '../../actions/stock';
+import * as APIUtil from '../../util/stock_api_util';
 
 const {
   popRoute,
@@ -33,8 +35,11 @@ class Search extends Component {
     this.state = {
       results: [],
       loading: false,
+      stockModalOpen: false,
+      selectedStock: undefined,
     };
     this.handlePress = this.handlePress.bind(this);
+    this.queryTickers = this.queryTickers.bind(this);
   }
 
   popRoute() {
@@ -46,20 +51,24 @@ class Search extends Component {
       loading: true,
     });
 
-    fetch(`http://d.yimg.com/autoc.finance.yahoo.com/autoc?query=${str}&region=1&lang=en&callback=YAHOO.Finance.SymbolSuggest.ssJSON`, { method: 'GET' })
-    .then(res => res.text())
-    .then((txt) => {
-      const regex = /^YAHOO.Finance.SymbolSuggest.ssJSON\((.*)\);$/g;
-      const match = regex.exec(txt);
-      const tickerObj = JSON.parse(match[1]);
-      const results = tickerObj.ResultSet.Result.filter(res => res.exchDisp === 'NASDAQ');
-      this.setState({ results, loading: false });
-    })
-    .catch(error => console.log(error));
+    APIUtil.suggestStocks(str)
+      .then((results) => {
+        this.setState({
+          results,
+          loading: false,
+        });
+      });
   }
 
   handlePress(ticker) {
     this.props.updateStock(ticker);
+    APIUtil.getStock(ticker)
+      .then((stock) => {
+        this.setState({
+          selectedStock: stock,
+          stockModalOpen: true,
+        });
+      });
   }
 
   render() {
@@ -85,12 +94,26 @@ class Search extends Component {
               onChangeText={searchString => this.queryTickers(searchString)}
             />
           </InputGroup>
-          {this.state.loading ? <Spinner /> : <List dataArray={this.state.results} renderRow={item =>
-            <ListItem button onPress={() => this.handlePress(item.symbol)} >
-              <Text>{item.symbol}</Text>
-              <Text style={{ color: '#007594' }}>{item.name}</Text>
-            </ListItem>
-          } />}
+          {this.state.loading ? <Spinner />
+          : <List
+            dataArray={this.state.results}
+            renderRow={item =>
+              <ListItem button onPress={() => this.handlePress(item.symbol)} >
+                <Text>{item.symbol}</Text>
+                <Text style={{ color: '#007594' }}>{item.name}</Text>
+              </ListItem>
+            }
+          />}
+          <Modal
+            animationType="slide"
+            transparent={false}
+            visible={this.state.stockModalOpen}>
+            <Card style={{ paddingTop: 20 }} >
+              <Button onPress={() => this.setState({ stockModalOpen: false })}>
+                Close Modal
+              </Button>
+            </Card>
+          </Modal>
         </Content>
       </Container>
     );

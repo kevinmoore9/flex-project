@@ -6,6 +6,24 @@ export const getStock = (ticker) => {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
-    }).then((res) => res.text()).then((txt) => JSON.parse(txt))
+    })
+    .then((res) => res.text())
+    .then((txt) => JSON.parse(txt).query.results.quote)
+    .catch((error => console.error(error)))
+  );
+};
+
+export const suggestStocks = (str) => {
+  return (
+    fetch(`http://d.yimg.com/autoc.finance.yahoo.com/autoc?query=${str}&region=1&lang=en&callback=YAHOO.Finance.SymbolSuggest.ssJSON`, { method: 'GET' })
+    .then(res => res.text())
+    .then((txt) => {
+      const regex = /^YAHOO.Finance.SymbolSuggest.ssJSON\((.*)\);$/g;
+      const match = regex.exec(txt);
+      const tickerObj = JSON.parse(match[1]);
+      const results = tickerObj.ResultSet.Result.filter(res => res.exchDisp === 'NASDAQ');
+      return results;
+    })
+    .catch(error => console.error(error))
   );
 };
