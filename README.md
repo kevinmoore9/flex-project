@@ -16,13 +16,17 @@ This App is built for iOS with React Native and Redux.
 Redux streamlines data flow and creates tighter integration between the various views.
 React-Native enforces modularized view components written in ES6 following Facebook's prescribed best-practices.
 React-Native also compiles the JavaScript view logic into iOS compatible code.
+Additional data for searching ticker symbols and showing current stock prices and charts is fetched from Yahoo Finance on the front-end to alleviate load on our (free) Heroku host.
 
 #### Back-end
 
 A Postgres database persists all relevant account information as well as some stock data as required on a server hosted by Heroku.
 
 The main backend application is written in Ruby on Rails, with two key gems stock_quote, and Jbuilder.
-Finding a good free API from which to query financial data proved difficult. The stock_quote gem provides easy access to the Yahoo finance API, which satisfies our needs. It is worth noting that Yahoo's terms and conditions prohibit the use of their API for Jbuilder renders JSON objects that are sent to the React native front-end as needed.
+
+Finding a good free API from which to query financial data proved difficult. The stock_quote gem provides easy access to the Yahoo finance API, which satisfies our needs. It is worth noting that Yahoo's terms and conditions prohibit the use of their service for financial gain. This is learning endeavor and thus does not violate their conditions. The stock_quote gem is used to update stock prices once daily after trading closes, and also to create a balance record for each user once a day to keep track of their positions.
+
+The Jbuilder gem helps render JSON objects that are sent to the React native front-end as needed.
 
 ## Images
 
