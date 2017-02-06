@@ -31,7 +31,7 @@ export const logout = (token) => {
 
 export const signup = (user) => {
   return (
-   fetch('https://ticker-backend.herokuapp.com/api/user', {
+   fetch('https://ticker-backend.herokuapp.com/api/users', {
      method: 'POST',
      headers: {
        'Accept': 'application/json',

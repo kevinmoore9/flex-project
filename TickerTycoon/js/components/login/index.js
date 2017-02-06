@@ -145,7 +145,6 @@ class Login extends Component {
                 <Input
                   placeholder="PASSWORD"
                   onChangeText={val => this.setState({ password: val })}
-                  debugger
                   secureTextEntry
                 />
               </InputGroup>

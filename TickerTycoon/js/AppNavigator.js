@@ -12,9 +12,9 @@ import Dashboard from './components/dashboard/';
 import Search from './components/search';
 import SplashPage from './components/splashscreen/';
 import SideBar from './components/sideBar';
+import Deposit from './components/deposit/';
 import { statusBarColor } from './themes/base-theme';
 
-import { getUser } from './actions/session_actions';
 
 const {
   popRoute,
@@ -84,6 +84,8 @@ class AppNavigator extends Component {
         return <Dashboard />;
       case 'search':
         return <Search />;
+      case 'deposit':
+        return <Deposit />;
       default :
         return <Login />;
     }

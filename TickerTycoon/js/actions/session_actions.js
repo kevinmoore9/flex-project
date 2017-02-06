@@ -31,9 +31,3 @@ export const login = params => dispatch => (
 export const logout = token => dispatch => (
   APIUtil.logout(token).then(() => dispatch(receiveCurrentUser(null)))
 );
-
-// export const getUser = token => (dispatch) => {
-//   return (
-//     APIUtil.get(token).then(user => dispatch(receiveCurrentUser(user)))
-//   );
-// };
