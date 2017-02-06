@@ -66,15 +66,16 @@ class Search extends Component {
       .then((stock) => {
         this.setState({
           selectedStock: stock,
+        });
+      })
+      .then(() => {
+        this.setState({
           stockModalOpen: true,
         });
       });
-      console.log(`http://chart.finance.yahoo.com/z?s=${this.state.selectedStock.Symbol}&t=1M&key=${Math.random()}`);
   }
 
   render() {
-    let deviceWidth = Dimensions.get('window').width;
-
     return (
       <Container style={styles.container}>
         <Header>
@@ -112,7 +113,7 @@ class Search extends Component {
             transparent={false}
             visible={this.state.stockModalOpen}
           >
-            {this.state.selectedStock &&
+            {(this.state.selectedStock !== undefined) &&
               <Card style={{ paddingTop: 20 }} >
                 <CardItem header>
                   <Text>{this.state.selectedStock.Name}</Text>

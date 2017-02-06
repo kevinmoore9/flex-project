@@ -133,7 +133,7 @@ class Dashboard extends Component {
       },
       xAxis: {
         type: 'datetime',
-        tickPixelInterval: 150,
+        tickPixelInterval: 1500,
       },
       yAxis: {
         title: {
