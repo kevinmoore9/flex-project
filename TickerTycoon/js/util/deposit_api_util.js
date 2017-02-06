@@ -1,5 +1,5 @@
 export const deposit = params => (
-   fetch(`http://localhost:3000/api/users/${params.user_id}/deposits`, {
+   fetch(`https://ticker-backend.herokuapp.com/api/users/${params.user_id}/deposits`, {
      method: 'POST',
      headers: {
        'Accept': 'application/json',
