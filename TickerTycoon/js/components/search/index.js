@@ -69,6 +69,7 @@ class Search extends Component {
           stockModalOpen: true,
         });
       });
+    console.log(this.state.selectedStock);
   }
 
   render() {
@@ -107,12 +108,24 @@ class Search extends Component {
           <Modal
             animationType="slide"
             transparent={false}
-            visible={this.state.stockModalOpen}>
-            <Card style={{ paddingTop: 20 }} >
-              <Button onPress={() => this.setState({ stockModalOpen: false })}>
-                Close Modal
-              </Button>
-            </Card>
+            visible={this.state.stockModalOpen}
+          >
+            {this.state.selectedStock &&
+              <Card style={{ paddingTop: 20 }} >
+                <CardItem header>
+                  <Text>{this.state.selectedStock.name}</Text>
+                </CardItem>
+                <CardItem>
+                  <Button>Buy {this.state.selectedStock.symbol}</Button>
+                  <Button>Sell {this.state.selectedStock.symbol}</Button>
+                </CardItem>
+                <CardItem header>
+                  <Button onPress={() => this.setState({ stockModalOpen: false })}>
+                    Close
+                  </Button>
+                </CardItem>
+              </Card>
+            }
           </Modal>
         </Content>
       </Container>
