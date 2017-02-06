@@ -9,6 +9,7 @@ import styles from './styles';
 
 const {
   popRoute,
+  replaceAt,
 } = actions;
 
 class Deposit extends Component {
@@ -17,6 +18,7 @@ class Deposit extends Component {
     deposit: React.PropTypes.func,
     popRoute: React.PropTypes.func,
     openDrawer: React.PropTypes.func,
+    replaceAt: React.PropTypes.func,
   }
 
   constructor(props) {
@@ -28,12 +30,17 @@ class Deposit extends Component {
     this.makeDeposit = this.makeDeposit.bind(this);
   }
 
-  popRoute() {
-    // this.props.popRoute(this.props.navigation.key);
+  replaceRoute(route) {
+    this.props.replaceAt('deposit', { key: route }, this.props.navigation.key);
   }
 
-  makeDeposit(params) {
-    this.props.deposit(params);
+  popRoute() {
+    this.props.popRoute(this.props.navigation.key);
+  }
+
+  makeDeposit() {
+    this.props.deposit(this.state);
+    this.popRoute();
   }
 
   render() {
@@ -58,7 +65,9 @@ class Deposit extends Component {
               onChangeText={val => this.setState({ amount: val })}
             />
           </InputGroup>
-    
+          <Button style={styles.btn} onPress={() => this.makeDeposit()}>
+            Make Deposit
+          </Button>
         </Content>
       </Container>
     );
@@ -67,6 +76,7 @@ class Deposit extends Component {
 
 function bindActions(dispatch) {
   return {
+    replaceAt: (routeKey, route, key) => dispatch(replaceAt(routeKey, route, key)),
     deposit: params => dispatch(deposit(params)),
     popRoute: key => dispatch(popRoute(key)),
     openDrawer: () => dispatch(openDrawer()),
