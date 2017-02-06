@@ -103,7 +103,7 @@ class Search extends Component {
             renderRow={item =>
               <ListItem button onPress={() => this.handlePress(item.symbol)} >
                 <Text>{item.symbol}</Text>
-                <Text style={{ color: '#007594' }}>{item.name}</Text>
+                <Text note style={{ color: '#007594' }}>{item.name}</Text>
               </ListItem>
             }
           />}
@@ -126,9 +126,14 @@ class Search extends Component {
                   </Button>
                 </CardItem>
                 <CardItem>
+                  <Text>
+                    Price: {this.state.selectedStock.LastTradePriceOnly}
+                  </Text>
+                </CardItem>
+                <CardItem>
                   <Image
                     resizeMode="contain"
-                    style={{ height: 180 }}
+                    style={{ height: 200 }}
                     source={{
                       uri: `https://chart.finance.yahoo.com/z?s=${this.state.selectedStock.Symbol}&t=1M&key=${Math.random()}`,
                     }}
