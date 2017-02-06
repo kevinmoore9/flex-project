@@ -32,11 +32,22 @@ The Jbuilder gem helps render JSON objects that are sent to the React native fro
 
 Here are some sample images of what the App looks like on an iPhone:
 
-login/signup:
+Login page:
 
-Stock-show view:
+![alttag](./docs/images/loginstocks.gif)
 
-portfolio-overview:
+Portfolio overview:
+
+![alttag](./docs/images/profile-overview.png)
+
+Stock search page:
+
+![alttag](./docs/images/searchstocks.gif)
+
+Stock show view:
+
+![alttag](./docs/images/stock-show.png)
+
 
 
 ## Future Directions
