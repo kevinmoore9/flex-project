@@ -115,7 +115,7 @@ class Login extends Component {
 
   renderErrors() {
     return (
-      <List>
+      <List style={styles.errors}>
         {this.props.errors.map((error, i) => (
           <ListItem key={`error-${i}`}>
             <Text>
@@ -132,6 +132,7 @@ class Login extends Component {
       <Container>
         <View style={styles.container}>
           <Content>
+            {this.renderErrors()}
             <View style={styles.bg}>
               <InputGroup style={styles.input}>
                 <Icon name="ios-person" />
@@ -146,7 +147,6 @@ class Login extends Component {
                   secureTextEntry
                 />
               </InputGroup>
-              {this.renderErrors()}
               <Button style={styles.btn} onPress={() => this.handleSubmit()}>
                 {this.formType}
               </Button>

@@ -6,10 +6,9 @@ export const getStock = (ticker) => {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
-    })
-    .then((res) => res.text())
-    .then((txt) => JSON.parse(txt).query.results.quote)
-    .catch((error => console.error(error)))
+    }).then(res => res.text())
+      .then(txt => JSON.parse(txt).query.results.quote)
+      .catch((error => console.error(error)))
   );
 };
 

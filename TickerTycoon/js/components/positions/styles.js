@@ -19,7 +19,12 @@ module.exports = StyleSheet.create({
     width: null,
     height: null,
   },
-
+  indentItem: {
+    borderBottomWidth: 0,
+  },
+  headerText: {
+    fontWeight: 'bold',
+  },
   bg: {
     flex: 1,
     marginTop: deviceHeight / 1.75,
