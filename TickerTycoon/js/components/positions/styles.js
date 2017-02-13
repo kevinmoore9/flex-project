@@ -19,6 +19,11 @@ module.exports = StyleSheet.create({
     width: null,
     height: null,
   },
+  value: {
+    fontSize: 22,
+    textAlign: 'center',
+    marginTop: 20,
+  },
   indentItem: {
     borderBottomWidth: 0,
   },

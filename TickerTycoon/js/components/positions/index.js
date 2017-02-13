@@ -35,7 +35,6 @@ class Positions extends Component {
     this.props.popRoute(this.props.navigation.key);
   }
 
-
   render() {
     return (
       <Container style={styles.container}>
@@ -51,7 +50,7 @@ class Positions extends Component {
           </Button>
         </Header>
         <Content>
-
+          <Text style={styles.value}>Portfolio Value: ${this.props.currentUser.balances.equity}</Text>
           <List>
             {Object.values(this.props.currentUser.stocks).map((stock, i) => (
               <ListItem key={`stock-${i}`} style={styles.li}>
