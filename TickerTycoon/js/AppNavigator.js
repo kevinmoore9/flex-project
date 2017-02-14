@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { BackAndroid, StatusBar, NavigationExperimental, AsyncStorage } from 'react-native';
+import { BackAndroid, StatusBar, NavigationExperimental } from 'react-native';
 import { connect } from 'react-redux';
 import { Drawer } from 'native-base';
 import { actions } from 'react-native-navigation-redux-helpers';
@@ -13,6 +13,7 @@ import Search from './components/search';
 import SplashPage from './components/splashscreen/';
 import SideBar from './components/sideBar';
 import Deposit from './components/deposit/';
+import Positions from './components/positions/';
 import { statusBarColor } from './themes/base-theme';
 
 
@@ -86,6 +87,8 @@ class AppNavigator extends Component {
         return <Search />;
       case 'deposit':
         return <Deposit />;
+      case 'positions':
+        return <Positions />;
       default :
         return <Login />;
     }
