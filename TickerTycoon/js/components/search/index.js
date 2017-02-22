@@ -87,7 +87,7 @@ class Search extends Component {
     console.log(parseInt(num));
     console.log(parseInt(num) === NaN);
 
-    parseInt(num) === NaN ? this.props.trade(params) : AlertIOS.alert("Please enter a valid number");
+    parseInt(num) === NaN ?  AlertIOS.alert("Please enter a valid number") : this.props.trade(params);
     // this.props.trade(params);
   }
 
