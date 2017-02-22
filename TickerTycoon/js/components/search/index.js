@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Modal, Image, Platform, Dimensions } from 'react-native';
+import { Modal, Image, Platform, Dimensions, AlertIOS } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Title, Content, Text, Input,
@@ -77,10 +77,10 @@ class Search extends Component {
       });
   }
 
-  handleTrade(type) {
+  handleTrade(type, num) {
     const params = {
       trade_type: type,
-      volume: 10,
+      volume: parseInt(num),
       ticker_sym: this.state.selectedStock.Symbol,
       user_id: this.props.currentUser.id,
     };
@@ -131,10 +131,10 @@ class Search extends Component {
                   <Text>{this.state.selectedStock.Name}</Text>
                 </CardItem>
                 <CardItem cardBody style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                  <Button onPress={() => this.handleTrade('BUY')}>
+                  <Button onPress={() => AlertIOS.prompt('How many shares?', null, num => this.handleTrade('BUY', num))}>
                     Buy {this.state.selectedStock.Symbol}
                   </Button>
-                  <Button onPress={() => this.handleTrade('SELL')}>
+                  <Button onPress={() => AlertIOS.prompt('How many shares?', null, num => this.handleTrade('SELL', num))}>
                     Sell {this.state.selectedStock.Symbol}
                   </Button>
                 </CardItem>
