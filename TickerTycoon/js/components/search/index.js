@@ -84,7 +84,11 @@ class Search extends Component {
       ticker_sym: this.state.selectedStock.Symbol,
       user_id: this.props.currentUser.id,
     };
-    this.props.trade(params);
+    console.log(parseInt(num));
+    console.log(parseInt(num) === NaN);
+
+    parseInt(num) === NaN ? this.props.trade(params) : AlertIOS.alert("Please enter a valid number");
+    // this.props.trade(params);
   }
 
   render() {
