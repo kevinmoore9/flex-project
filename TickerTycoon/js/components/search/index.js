@@ -65,16 +65,16 @@ class Search extends Component {
   handlePress(ticker) {
     this.props.updateStock(ticker);
     APIUtil.getStock(ticker)
-      .then((stock) => {
-        this.setState({
-          selectedStock: stock,
-        });
-      })
-      .then(() => {
-        this.setState({
-          stockModalOpen: true,
-        });
+    .then((stock) => {
+      this.setState({
+        selectedStock: stock,
       });
+    })
+    .then(() => {
+      this.setState({
+        stockModalOpen: true,
+      });
+    });
   }
 
   handleTrade(type) {
